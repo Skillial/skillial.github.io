@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Splash Intro with Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Spectral', serif;
+      background: #f5f5f7;
+      color: #1d1d1f;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .grid {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      user-select: none;
+      pointer-events: none;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .tile {
+      border-radius: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.8s ease, transform 0.8s ease, opacity 0.8s ease;
+      aspect-ratio: 1 / 1;
+      width: 100%;
+      height: auto;
+      will-change: background-color, transform;
+      transform: scale(0.96);
+      z-index: 1;
+      opacity: 0.6;
+    }
+
+    .name {
+      font-size: 4rem;
+      color: #000;
+      letter-spacing: 0.2rem;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      opacity: 0;
+      transition: opacity 1.2s ease-in;
+      text-align: center;
+      white-space: nowrap;
+      user-select: none;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+      font-feature-settings: 'liga';
+      margin-bottom: 0;
+      font-family: 'Spectral', serif;
+    }
+
+    .name.show {
+      opacity: 1;
+    }
+
+    .name:not(.show) {
+      transition: opacity 0s;
+    }
+
+    /* Portfolio styles */
+    .portfolio {
+      width: 100%;
+      color: #333;
+      opacity: 0;
+      text-align: left;
+      z-index: 2;
+      user-select: none;
+      font-family: 'Inter', sans-serif;
+      transition: opacity 1.2s ease-in;
+      padding: 1.5rem;
+      box-sizing: border-box;
+    }
+
+    .portfolio.show {
+      opacity: 1;
+    }
+
+    .portfolio h2 {
+      font-weight: 600;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      color: #000;
+    }
+
+    .project {
+      margin-bottom: 1.2rem;
+    }
+
+    .project-title {
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: #1d1d1f;
+      margin-bottom: 0.2rem;
+    }
+
+    .project-desc {
+      font-weight: 400;
+      font-size: 1rem;
+      color: #555;
+      line-height: 1.4;
+    }
+
+    .zcool-kuaile {
+      font-family: 'ZCOOL KuaiLe', cursive;
+    }
+
+    /* Styles from the new portfolio HTML */
+    body.portfolio-active {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 2rem;
+      color: #1a1a1a;
+      overflow: auto; /* Allow scrolling for portfolio content */
+    }
+
+    .window-card {
+      background-color: #ffffff;
+      border-radius: 1rem;
+      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      padding: 1.5rem;
+      max-width: 90%;
+      width: 800px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .nav-toggle-button {
+      padding: 0.5rem 1rem;
+      border-radius: 9999px;
+      font-weight: 500;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+      outline: none;
+    }
+
+    .nav-toggle-active {
+      background-color: #e0e0e0;
+      color: #333333;
+    }
+
+    .nav-toggle-inactive {
+      color: #666666;
+      background-color: transparent;
+    }
+
+    .headline-gradient {
+      background: linear-gradient(to right, #333333, #999999);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      color: transparent;
+      font-weight: 700;
+      display: inline-block;
+      line-height: 1.4;
+    }
+
+    .cursor {
+      display: inline-block;
+      margin-left: 0.1rem;
+      width: 2px;
+      background-color: #333;
+      animation: blink 0.7s infinite;
+      height: 1em;
+      vertical-align: baseline;
+      position: relative;
+      top: 0.15em;
+    }
+
+    @keyframes blink {
+      0%,
+      100% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .main-headline {
+      min-height: 120px;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      padding-top: 1rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="grid" id="grid"></div>
+  <div class="name" id="name">
+    Jean Cabrera
+    <span class="zcool-kuaile">
+      [<strong>陈</strong>嘉<strong>诚</strong>]
+    </span>
+  </div>
+  <div class="portfolio" id="portfolio" aria-live="polite">
+    <div class="w-full max-w-7xl mx-auto flex flex-col items-center">
+      <header class="w-full flex items-center justify-between py-6 px-4 md:px-0">
+        <div class="flex items-center space-x-2">
+          <span class="text-gray-800 text-lg font-semibold">Jean Cabrera</span>
+          <span class="text-gray-400 text-lg hidden md:inline zcool-kuaile  "><strong>陈</strong>嘉<strong>诚</strong></span>
+        </div>
+        <div class="flex bg-gray-200 rounded-full p-1 nav-toggle-group" role="tablist" aria-label="Main Navigation">
+          <button id="work-tab" class="nav-toggle-button nav-toggle-active" role="tab" aria-selected="true"
+            aria-controls="work-content">Experience</button>
+          <button id="info-tab" class="nav-toggle-button nav-toggle-inactive" role="tab" aria-selected="false"
+            aria-controls="info-content">Info</button>
+        </div>
+        <div class="flex items-center space-x-6 text-gray-600 font-medium header-links">
+          <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer"
+            class="hover:text-gray-800 transition duration-200">LinkedIn</a>
+          <a href="/path/to/your/resume.pdf" target="_blank" rel="noopener noreferrer"
+            class="hover:text-gray-800 transition duration-200">Resume</a>
+        </div>
+      </header>
+      <section class="window-card mt-8 w-full">
+        <div id="work-content" class="main-content-area md:text-left">
+          <p class="text-gray-700 text-lg md:text-xl font-medium mb-4">
+            I don't just solve problems, I unlock opportunities.
+          </p>
+          <h1 class="text-gray-900 text-4xl md:text-5xl lg:text-6xl font-bold main-headline">
+            <span id="typewriter-text" class="headline-gradient" aria-live="polite"></span><span class="cursor"></span>
+          </h1>
+          <p class="text-gray-600 text-base md:text-lg sub-text mb-2 text-right mt-6">
+            Based in Philippines.
+          </p>
+          <p class="text-gray-600 text-base md:text-lg sub-text text-right">
+            Connect With me ^_^
+          </p>
+        </div>
+
+        <div id="info-content" class="hidden main-content-area md:text-left">
+          <h2 class="text-gray-900 text-2xl md:text-3xl font-bold mb-4">About Me</h2>
+          <p class="text-gray-700 text-base md:text-lg mb-4">
+            Hello! I'm Jean Cabrera
+          </p>
+          <p class="text-gray-700 text-base md:text-lg mb-4">
+
+          </p>
+          <p class="text-gray-700 text-base md:text-lg">
+
+          </p>
+        </div>
+      </section>
+    </div>
+  </div>
+
+
+  <script>
+    const grid = document.getElementById('grid');
+    const name = document.getElementById('name');
+    const portfolio = document.getElementById('portfolio');
+    let tileSize = 100;
+    let tiles = [];
+    let totalTiles = 0;
+    let isFast;
+    function createTiles() {
+      tiles = [];
+      grid.innerHTML = ''; 
+
+      const containerWidth = window.innerWidth;
+      const containerHeight = window.innerHeight;
+      let cols = Math.ceil(containerWidth / tileSize);
+      let rows = Math.ceil(containerHeight / tileSize);
+      while (cols > 32 || rows > 16) {
+        isFast = true; 
+        tileSize += 10;
+        cols = Math.ceil(containerWidth / tileSize);
+        rows = Math.ceil(containerHeight / tileSize);
+      }
+      totalTiles = rows * cols;
+      grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+      grid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+
+      for (let i = 0; i < rows * cols; i++) {
+        const tile = document.createElement('div');
+        tile.classList.add('tile');
+        const shade = 245 + Math.floor(Math.random() * 10);
+        tile.style.backgroundColor = `rgb(${shade},${shade},${shade})`;
+        tile.style.transform = 'scale(1)';
+        grid.appendChild(tile);
+        tiles.push(tile);
+      }
+    }
+
+    function delay(ms) {
+      return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    function shuffle(array) {
+      let arr = [...array];
+      for (let i = arr.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+      }
+      return arr;
+    }
+
+    function* fibonacci() {
+      let a = 1,
+        b = 1;
+      while (true) {
+        yield a;
+        [a, b] = [b, a + b];
+      }
+    }
+
+    async function animateTilesToColorRandomGroups(color, scale) {
+      let shuffledTiles = shuffle(tiles);
+      let index = 0;
+      const fibGen = fibonacci();
+
+      while (index < shuffledTiles.length) {
+        const groupSize = fibGen.next().value;
+        const actualGroupSize = Math.min(groupSize, shuffledTiles.length - index);
+        const group = shuffledTiles.slice(index, index + actualGroupSize);
+
+        for (const tile of group) {
+          tile.style.backgroundColor = color;
+          tile.style.transform = `scale(${scale})`;
+          tile.style.zIndex = '1';
+          tile.style.opacity = '0.6';
+          if (isFast) {
+            await delay(1);
+          } else {
+            await delay(4);
+          }
+        }
+        index += actualGroupSize;
+        if (isFast) {
+          await delay(4);
+        } else {
+          await delay(12);
+        }
+      }
+    }
+
+    async function animateTilesToRandomWhite() {
+      let shuffledTiles = shuffle(tiles);
+      let index = 0;
+      const fibGen = fibonacci();
+
+      while (index < shuffledTiles.length) {
+        const groupSize = fibGen.next().value;
+        const actualGroupSize = Math.min(groupSize, shuffledTiles.length - index);
+        const group = shuffledTiles.slice(index, index + actualGroupSize);
+
+        for (const tile of group) {
+          const shade = 245 + Math.floor(Math.random() * 10);
+          tile.style.backgroundColor = `rgb(${shade},${shade},${shade})`;
+          tile.style.transform = 'scale(1)';
+          tile.style.zIndex = '3';
+          tile.style.opacity = '1';
+          if (!isFast) {
+            await delay(4);
+          }
+        }
+
+        index += actualGroupSize;
+        if (!isFast) { 
+          await delay(8);
+        }
+      }
+    }
+
+    const typewriterTextElement = document.getElementById('typewriter-text');
+    const phrases = [
+      "Intuitive user experiences.",
+      "Actionable data insights.",
+      "Secure system architecture.",
+      "Smart financial solutions."
+    ];
+
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+    let typingSpeed = 70; 
+    let deletingSpeed = 40; 
+    let pauseBeforeDelete = 1500;
+    let pauseBeforeType = 500; 
+    let typewriterTimeoutId; 
+
+    function typeWriter() {
+      const currentPhrase = phrases[phraseIndex];
+
+      clearTimeout(typewriterTimeoutId);
+
+      if (isDeleting) {
+        typewriterTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
+        charIndex--;
+
+        if (charIndex === 0) {
+          isDeleting = false;
+          phraseIndex = (phraseIndex + 1) % phrases.length; 
+          typewriterTimeoutId = setTimeout(typeWriter, pauseBeforeType); 
+          return;
+        }
+
+        typewriterTimeoutId = setTimeout(typeWriter, deletingSpeed); 
+      } else {
+        typewriterTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
+        charIndex++;
+
+        if (charIndex === currentPhrase.length) {
+          isDeleting = true;
+          typewriterTimeoutId = setTimeout(typeWriter, pauseBeforeDelete); 
+          return;
+        }
+
+        typewriterTimeoutId = setTimeout(typeWriter, typingSpeed); 
+      }
+    }
+
+    let workTab;
+    let infoTab;
+    let workContent;
+    let infoContent;
+
+    function switchTab(activeSectionId) {
+      if (activeSectionId === 'work-content') {
+        workContent.classList.remove('hidden');
+        infoContent.classList.add('hidden');
+
+        workTab.classList.add('nav-toggle-active');
+        workTab.classList.remove('nav-toggle-inactive');
+        workTab.setAttribute('aria-selected', 'true');
+
+        infoTab.classList.add('nav-toggle-inactive');
+        infoTab.classList.remove('nav-toggle-active');
+        infoTab.setAttribute('aria-selected', 'false');
+
+        clearTimeout(typewriterTimeoutId); 
+        typewriterTextElement.textContent = phrases[0].substring(0, 1);
+        phraseIndex = 0;
+        charIndex = 1; 
+        isDeleting = false;
+        typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
+      } else if (activeSectionId === 'info-content') {
+        infoContent.classList.remove('hidden');
+        workContent.classList.add('hidden');
+
+        infoTab.classList.add('nav-toggle-active');
+        infoTab.classList.remove('nav-toggle-inactive');
+        infoTab.setAttribute('aria-selected', 'true');
+
+        workTab.classList.add('nav-toggle-inactive');
+        workTab.classList.remove('nav-toggle-active');
+        workTab.setAttribute('aria-selected', 'false');
+
+        clearTimeout(typewriterTimeoutId);
+        typewriterTextElement.textContent = ""; 
+        charIndex = 0;
+        isDeleting = false;
+      }
+    }
+
+    async function runSequence() {
+      portfolio.classList.remove('show');
+      name.classList.remove('show');
+
+      await animateTilesToColorRandomGroups('#f5f5f7', 0.96);
+      name.classList.add('show'); 
+      await delay(2000);
+      await animateTilesToRandomWhite();
+      name.classList.remove('show');
+      workTab = document.getElementById('work-tab');
+      infoTab = document.getElementById('info-tab');
+      workContent = document.getElementById('work-content');
+      infoContent = document.getElementById('info-content');
+
+      workTab.addEventListener('click', () => switchTab('work-content'));
+      infoTab.addEventListener('click', () => switchTab('info-content'));
+
+      portfolio.classList.add('show'); 
+      document.body.classList.add('portfolio-active');
+      await delay(20);
+      await animateTilesToColorRandomGroups('#f5f5f7', 0.96);
+
+      typewriterTextElement.textContent = phrases[0].substring(0, 1);
+      typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
+
+      switchTab('work-content');
+    }
+
+    window.onload = () => {
+      createTiles();
+      runSequence();
+    };
+
+  </script>
+</body>
+
+</html>
