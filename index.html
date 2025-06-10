@@ -134,7 +134,6 @@
       user-select: none;
       font-family: 'Inter', sans-serif;
       transition: opacity 1.2s ease-in;
-      padding: 1.5rem;
       box-sizing: border-box;
     }
 
@@ -221,7 +220,8 @@
       background-clip: text;
       color: transparent;
       font-weight: 700;
-      display: inline; /* Changed from inline-block */
+      display: inline;
+      /* Changed from inline-block */
       line-height: 1.4;
     }
 
@@ -233,19 +233,21 @@
       animation: blink 0.7s infinite;
       height: 1em;
       /* cursor height will be relative to the font size of the parent */
-      vertical-align: baseline; /* ensures it aligns with the text baseline */
+      vertical-align: baseline;
+      /* ensures it aligns with the text baseline */
       /* Removed position: relative and top: 0.15em as they caused misalignment */
     }
 
     .main-headline {
       /* Removed min-height: 120px; */
-      text-align: center; /* Keeps the text centered */
+      text-align: center;
+      /* Keeps the text centered */
       margin-bottom: 1.5rem;
       padding-top: 1rem;
     }
 
     /* Media query for mobile devices */
-    @media (max-width: 425px) {
+    @media (max-width: 425px) and (min-width: 375px) {
       .pc-name {
         display: none;
         /* Hide PC name on mobile */
@@ -269,10 +271,84 @@
       }
 
       .main-headline {
-        min-height: 120px; 
-        text-align: center; /* Keeps the text centered */
+        min-height: 120px;
+        text-align: center;
+        /* Keeps the text centered */
         margin-bottom: 1.5rem;
         padding-top: 1rem;
+      }
+
+      .smart-text {
+        font-size: 0.75rem;
+      }
+    }
+
+    @media(max-width:375px)and (min-width: 320px) {
+      .pc-name {
+        display: none;
+        /* Hide PC name on mobile */
+      }
+
+      .phone-name {
+        display: block;
+        /* Show phone name on mobile */
+      }
+
+      #pc-link {
+        display: none;
+      }
+
+      #pc-nav {
+        display: none;
+      }
+
+      .portfolio {
+        padding: 1rem;
+      }
+
+      .window-card {
+        max-width: 100%;
+      }
+
+      .main-headline {
+        min-height: 120px;
+      }
+    }
+
+    @media (max-width:320px) {
+      .pc-name {
+        display: none;
+        /* Hide PC name on mobile */
+      }
+
+      .phone-name {
+        display: block;
+        /* Show phone name on mobile */
+      }
+
+      #pc-link {
+        display: none;
+      }
+
+      #pc-nav {
+        display: none;
+      }
+
+      .portfolio {
+        padding: 0rem;
+        margin: 0rem;
+      }
+
+      .window-card {
+        max-width: 120%;
+      }
+
+      .main-headline {
+        min-height: 120px;
+      }
+
+      .smart-text {
+        font-size: 0.70rem
       }
     }
   </style>
@@ -313,13 +389,13 @@
       </header>
       <section class="window-card mt-8 w-full">
         <div id="work-content" class="main-content-area md:text-left">
-          <p class="text-gray-600 text-base md:text-lg font-medium mb-4">
+          <p class="text-gray-600 text-sm md:text-lg font-medium mb-4">
             I don't just solve problems, I unlock opportunities.
           </p>
           <h1 class="text-gray-900 text-3xl md:text-4xl lg:text-6xl font-bold main-headline">
             <span id="typewriter-text" class="headline-gradient" aria-live="polite"></span><span class="cursor"></span>
           </h1>
-          <p class="text-gray-600 text-xs md:text-md lg:text-lg sub-text mb-2 text-right mt-6">
+          <p class="text-gray-600 smart-text md:text-md lg:text-lg sub-text mb-2 text-right mt-6">
             <b>Smart moves need the right partner.</b>
           </p>
           <p class="text-gray-400 text-xs md:text-md lg:text-lg sub-text text-right">
