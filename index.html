@@ -215,15 +215,17 @@
       padding-top: 1rem;
     }
     @media (max-width: 425px) {
-      .main-headline {
-        justify-content: flex-start;
-        text-align: left;
-      }
-      .splash-name {
+      .phone-name {
         display: none;
       }
-      #links {
+      .phone-links {
         display: none;
+      }
+      .phone-nav{
+        display: none;
+      }
+      .portfolio {
+        padding: 1rem;
       }
     }
   </style>
@@ -231,10 +233,8 @@
 
 <body>
   <div class="grid" id="grid"></div>
-  <div class="name" id="name">
-    <span class="splash-name">
+  <div class="name" id="name" class="phone-name">
     Jean Cabrera
-    </span>
     <span class="zcool-kuaile">
     [<strong>陈</strong>嘉<strong>诚</strong>]
     </span>
@@ -246,13 +246,13 @@
           <span class="text-gray-800 text-lg font-semibold">Jean Cabrera</span>
           <span class="text-gray-400 text-lg hidden md:inline zcool-kuaile  "><strong>陈</strong>嘉<strong>诚</strong></span>
         </div>
-        <div class="flex bg-gray-200 rounded-full p-1 nav-toggle-group" role="tablist" aria-label="Main Navigation"  id="links">
+        <div class="flex bg-gray-200 rounded-full p-1 nav-toggle-group phone-nav" role="tablist" aria-label="Main Navigation">
           <button id="work-tab" class="nav-toggle-button nav-toggle-active" role="tab" aria-selected="true"
             aria-controls="work-content">Experience</button>
           <button id="info-tab" class="nav-toggle-button nav-toggle-inactive" role="tab" aria-selected="false"
             aria-controls="info-content">About</button>
         </div>
-        <div class="flex items-center space-x-6 text-gray-600 font-medium header-links"  id="links">
+        <div class="flex items-center space-x-6 text-gray-600 font-medium header-links phone-links" id="links">
           <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener noreferrer"
             class="hover:text-gray-800 transition duration-200">LinkedIn</a>
           <a href="/path/to/your/resume.pdf" target="_blank" rel="noopener noreferrer"
