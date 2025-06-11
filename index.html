@@ -2,1052 +2,1217 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="logo.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jean Cabrera</title>
-  <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet" />
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jean Cabrera</title>
+    <link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    html,
-    body {
-      height: 100%;
-      overflow: hidden;
-      font-family: 'Spectral', serif;
-      background: #f5f5f7;
-      color: #1d1d1f;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+        html,
+        body {
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Spectral', serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
 
-    .grid {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: grid;
-      user-select: none;
-      pointer-events: none;
-      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-      grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
-    }
+        .grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            user-select: none;
+            pointer-events: none;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
+        }
 
-    .tile {
-      border-radius: 8px;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-      transition: background-color 0.8s ease, transform 0.8s ease, opacity 0.8s ease;
-      aspect-ratio: 1 / 1;
-      width: 100%;
-      height: auto;
-      will-change: background-color, transform;
-      transform: scale(0.96);
-      z-index: 1;
-      opacity: 0.6;
-    }
+        .tile {
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.8s ease, transform 0.8s ease, opacity 0.8s ease;
+            aspect-ratio: 1 / 1;
+            width: 100%;
+            height: auto;
+            will-change: background-color, transform;
+            transform: scale(0.96);
+            z-index: 1;
+            opacity: 0.6;
+        }
 
-    /* Styles for the PC name element */
-    .pc-name {
-      font-size: 4rem;
-      color: #000;
-      letter-spacing: 0.2rem;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      opacity: 0;
-      transition: opacity 1.2s ease-in;
-      text-align: center;
-      white-space: nowrap;
-      user-select: none;
-      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-      font-feature-settings: 'liga';
-      margin-bottom: 0;
-      font-family: 'Spectral', serif;
-      display: block;
-      /* Show by default for desktop */
-    }
+        /* Styles for the PC name element */
+        .pc-name {
+            font-size: 4rem;
+            color: #000;
+            letter-spacing: 0.2rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 1.2s ease-in;
+            text-align: center;
+            white-space: nowrap;
+            user-select: none;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            font-feature-settings: 'liga';
+            margin-bottom: 0;
+            font-family: 'Spectral', serif;
+            display: block;
+            /* Show by default for desktop */
+        }
 
-    /* Styles for the phone name (logo) element */
-    .phone-name {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      opacity: 0;
-      /* Initial hidden state */
-      transition: opacity 1.2s ease-in;
-      text-align: center;
-      user-select: none;
-      display: none;
-      /* Hide by default for desktop */
-    }
+        /* Styles for the phone name (logo) element */
+        .phone-name {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            opacity: 0;
+            /* Initial hidden state */
+            transition: opacity 1.2s ease-in;
+            text-align: center;
+            user-select: none;
+            display: none;
+            /* Hide by default for desktop */
+        }
 
-    /* Make phone-name visible when show class is added */
-    .phone-name.show {
-      opacity: 1;
-    }
+        /* Make phone-name visible when show class is added */
+        .phone-name.show {
+            opacity: 1;
+        }
 
-    /* Style for the image inside phone-name */
-    .phone-name img {
-      max-width: 100%;
-      height: auto;
-      width: 320px;
-      /* Example size for the logo */
-      height: 320px;
-      /* Example size for the logo */
-      object-fit: contain;
-      /* Ensures the image fits without distortion */
-      display: block;
-      /* Ensures proper block behavior for centering */
-      margin: 0 auto;
-      /* Center the image within its container */
-    }
-
-
-    .pc-name.show {
-      opacity: 1;
-    }
-
-    .pc-name:not(.show) {
-      transition: opacity 0s;
-    }
-
-    /* Portfolio styles */
-    .portfolio {
-      width: 100%;
-      color: #333;
-      opacity: 0;
-      text-align: left;
-      z-index: 2;
-      user-select: none;
-      font-family: 'Inter', sans-serif;
-      transition: opacity 1.2s ease-in;
-      box-sizing: border-box;
-    }
-
-    .portfolio.show {
-      opacity: 1;
-    }
-
-    .portfolio h2 {
-      font-weight: 600;
-      margin-bottom: 1rem;
-      font-size: 2rem;
-      color: #000;
-    }
-
-    .projects {
-      padding: 1rem;
-      max-width: 90%;
-    }
+        /* Style for the image inside phone-name */
+        .phone-name img {
+            max-width: 100%;
+            height: auto;
+            width: 320px;
+            /* Example size for the logo */
+            height: 320px;
+            /* Example size for the logo */
+            object-fit: contain;
+            /* Ensures the image fits without distortion */
+            display: block;
+            /* Ensures proper block behavior for centering */
+            margin: 0 auto;
+            /* Center the image within its container */
+        }
 
 
-    .zcool-kuaile {
-      font-family: 'ZCOOL KuaiLe', cursive;
-    }
+        .pc-name.show {
+            opacity: 1;
+        }
 
-    /* Styles from the new portfolio HTML */
-    body.portfolio-active {
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      padding: 2rem;
-      color: #1a1a1a;
-      overflow: auto;
-      /* Allow scrolling for portfolio content */
-    }
+        .pc-name:not(.show) {
+            transition: opacity 0s;
+        }
 
-    .window-card {
-      background-color: #ffffff;
-      border-radius: 1rem;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      padding: 1.5rem;
-      max-width: 90%;
-      width: 800px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      position: relative;
-    }
+        /* Portfolio styles */
+        .portfolio {
+            width: 100%;
+            color: #333;
+            opacity: 0;
+            text-align: left;
+            z-index: 2;
+            user-select: none;
+            font-family: 'Inter', sans-serif;
+            transition: opacity 1.2s ease-in;
+            box-sizing: border-box;
+        }
 
-    /* --- Button and Indicator Styles --- */
-    .nav-toggle-group {
-      position: relative;
-      /* Essential for positioning the absolute indicator */
-      /* Tailwind classes: bg-gray-200 rounded-full p-1 */
-    }
+        .portfolio.show {
+            opacity: 1;
+        }
 
-    .nav-indicator {
-      position: absolute;
-      background-color: #d1d5db;
-      /* Light grey from the image (Tailwind gray-300) */
-      border-radius: 9999px;
-      height: calc(100% - 8px);
-      /* Adjust height to fit within the p-1 (4px padding on each side) */
-      top: 4px;
-      /* Adjust top to center it vertically within the p-1 padding */
-      transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
-      /* Animate position and width */
-      z-index: 0;
-      /* Behind the buttons */
-    }
+        .portfolio h2 {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: #000;
+        }
 
-    .nav-toggle-button {
-      position: relative;
-      /* Needed for z-index to work against the indicator */
-      z-index: 1;
-      /* Ensures text is on top of the indicator */
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      font-weight: 500;
-      cursor: pointer;
-      outline: none;
-      background-color: transparent;
-      /* Button itself is transparent */
-      color: #666666;
-      /* Default inactive text color (slightly darker gray) */
-      transition: color 0.3s ease-in-out;
-      /* Only text color transitions directly on the button */
-    }
-
-    /* Active state for the button text */
-    .nav-toggle-active {
-      color: #333333;
-      /* Darker text from the image for active state */
-    }
-
-    /* Inactive state for the button text */
-    .nav-toggle-inactive {
-      color: #666666;
-      /* Lighter text for inactive state */
-    }
-
-    /* --- End Button and Indicator Styles --- */
-    /* Add this to your <style> block */
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      border-radius: 100rem;
-    }
-
-    .headline-gradient {
-      background: linear-gradient(to bottom right, #000000, #bbbbbb);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-      color: transparent;
-      font-weight: 700;
-      display: inline;
-      /* Changed from inline-block */
-      line-height: 1.4;
-    }
-
-    .cursor {
-      display: inline-block;
-      margin-left: 0.1rem;
-      width: 2px;
-      background-color: #333;
-      animation: blink 0.7s infinite;
-      height: 1em;
-      /* cursor height will be relative to the font size of the parent */
-      vertical-align: baseline;
-      /* ensures it aligns with the text baseline */
-      /* Removed position: relative and top: 0.15em as they caused misalignment */
-    }
-
-    .main-headline {
-      /* Removed min-height: 120px; */
-      text-align: center;
-      /* Keeps the text centered */
-      margin-bottom: 1.5rem;
-      padding-top: 1rem;
-    }
-
-    .portfolio-width {
-      max-width: 90rem;
-    }
-
-    /* New Project Card Styles */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      /* exactly 2 columns */
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
+        .projects {
+            padding: 1rem;
+            max-width: 90%;
+        }
 
 
-    .project-card {
-      background-color: #f8f8f8;
-      /* Slightly off-white background for cards */
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      position: relative;
-      overflow: hidden;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 550px;
-      /* Fixed height for uniformity, adjust as needed */
-    }
+        .zcool-kuaile {
+            font-family: 'ZCOOL KuaiLe', cursive;
+        }
 
-    .project-card-content {
-      position: relative;
-      z-index: 10;
-      /* Ensure text is above diagonal */
-      display: flex;
-      flex-direction: column;
-      flex-grow: 1;
-      justify-content: space-between;
-    }
+        /* Styles from the new portfolio HTML */
+        body.portfolio-active {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 2rem;
+            color: #1a1a1a;
+            overflow: auto;
+            /* Allow scrolling for portfolio content */
+        }
 
-    .project-card h3 {
-      font-weight: 600;
-      font-size: 1.125rem;
-      /* text-lg */
-      color: #1d1d1f;
-      margin-bottom: 0.5rem;
-    }
+        .window-card {
+            background-color: #ffffff;
+            border-radius: 1rem;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            max-width: 90%;
+            width: 800px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+        }
 
-    .project-card p.description {
-      font-weight: 400;
-      font-size: 0.95rem;
-      color: #555;
-      line-height: 1.4;
-      margin-bottom: 1rem;
-      flex-grow: 1;
-      width: 65%
-    }
+        /* --- Button and Indicator Styles --- */
+        .nav-toggle-group {
+            position: relative;
+            /* Essential for positioning the absolute indicator */
+            /* Tailwind classes: bg-gray-200 rounded-full p-1 */
+        }
 
-    .project-action-button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 0.5rem 1rem;
-      border-radius: 9999px;
-      /* full rounded */
-      border: 1px solid #d1d5db;
-      /* Tailwind gray-300 */
-      background-color: transparent;
-      color: #333333;
-      font-size: 0.875rem;
-      /* text-sm */
-      font-weight: 500;
-      transition: background-color 0.2s ease, transform 0.2s ease;
-      text-decoration: none;
-      /* Remove underline for links */
-    }
+        .nav-indicator {
+            position: absolute;
+            background-color: #d1d5db;
+            /* Light grey from the image (Tailwind gray-300) */
+            border-radius: 9999px;
+            height: calc(100% - 8px);
+            /* Adjust height to fit within the p-1 (4px padding on each side) */
+            top: 4px;
+            /* Adjust top to center it vertically within the p-1 padding */
+            transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
+            /* Animate position and width */
+            z-index: 0;
+            /* Behind the buttons */
+        }
 
-    .project-action-button:hover {
-      background-color: #e5e7eb;
-      /* Tailwind gray-200 */
-      transform: translateY(-2px);
-    }
+        .nav-toggle-button {
+            position: relative;
+            /* Needed for z-index to work against the indicator */
+            z-index: 1;
+            /* Ensures text is on top of the indicator */
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-weight: 500;
+            cursor: pointer;
+            outline: none;
+            background-color: transparent;
+            /* Button itself is transparent */
+            color: #666666;
+            /* Default inactive text color (slightly darker gray) */
+            transition: color 0.3s ease-in-out;
+            /* Only text color transitions directly on the button */
+        }
 
-    .project-action-button svg {
-      margin-left: 0.5rem;
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
-    }
+        /* Active state for the button text */
+        .nav-toggle-active {
+            color: #333333;
+            /* Darker text from the image for active state */
+        }
 
-    .project-diagonal-visual {
-      position: absolute;
-      top: -20%;
-      right: -20%;
-      /* Start slightly off-card */
-      width: 100%;
-      height: 100%;
-      background-color: transparent;
-      /* A subtle background color */
-      transform: rotate(20deg) scale(1.2);
-      /* Adjust rotation and scale for desired diagonal effect */
-      transform-origin: bottom left;
-      z-index: 5;
-      /* Below text, above card background */
-      pointer-events: none;
-      /* Allow clicks through this visual layer */
-      opacity: 0.8;
-      /* Slight transparency */
-    }
+        /* Inactive state for the button text */
+        .nav-toggle-inactive {
+            color: #666666;
+            /* Lighter text for inactive state */
+        }
 
-    .project-diagonal-visual img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      opacity: 0.5;
-      /* Make image slightly transparent over background color */
-    }
+        /* --- End Button and Indicator Styles --- */
+        /* Add this to your <style> block */
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-radius: 100rem;
+        }
 
-    /* Modal specific styles */
-    .modal-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.7);
-      /* Dark overlay */
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      /* Ensure it's on top of everything */
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
+        .headline-gradient {
+            background: linear-gradient(to bottom right, #000000, #bbbbbb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            display: inline;
+            /* Changed from inline-block */
+            line-height: 1.4;
+        }
 
-    .modal-overlay.show {
-      opacity: 1;
-      visibility: visible;
-    }
+        .cursor {
+            display: inline-block;
+            margin-left: 0.1rem;
+            width: 2px;
+            background-color: #333;
+            animation: blink 0.7s infinite;
+            height: 1em;
+            /* cursor height will be relative to the font size of the parent */
+            vertical-align: baseline;
+            /* ensures it aligns with the text baseline */
+            /* Removed position: relative and top: 0.15em as they caused misalignment */
+        }
 
-    .modal-content {
-      background-color: #ffffff;
-      padding: 2.5rem;
-      border-radius: 1rem;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-      max-width: 500px;
-      width: 90%;
-      text-align: center;
-      transform: translateY(-20px);
-      /* Initial slight lift */
-      opacity: 0;
-      transition: transform 0.3s ease, opacity 0.3s ease;
-      position: relative;
-    }
+        .main-headline {
+            /* Removed min-height: 120px; */
+            text-align: center;
+            /* Keeps the text centered */
+            margin-bottom: 1.5rem;
+            padding-top: 1rem;
+        }
 
-    .modal-overlay.show .modal-content {
-      transform: translateY(0);
-      opacity: 1;
-    }
+        .portfolio-width {
+            max-width: 90rem;
+        }
 
-    .modal-close-button {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: #888;
-      transition: color 0.2s ease;
-    }
+        /* New Project Card Styles */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            /* exactly 2 columns */
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
 
-    .modal-close-button:hover {
-      color: #333;
-    }
 
-    .modal-link {
-      display: block;
-      padding: 0.8rem 1.5rem;
-      margin-bottom: 0.75rem;
-      /* Space between links */
-      border-radius: 9999px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-    }
+        .project-card {
+            background-color: #f8f8f8;
+            /* Slightly off-white background for cards */
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 550px;
+            /* Fixed height for uniformity, adjust as needed */
+        }
 
-    .modal-link.primary {
-      background-color: #1d1d1f;
-      color: #ffffff;
-    }
+        .project-card-content {
+            position: relative;
+            z-index: 10;
+            /* Ensure text is above diagonal */
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            justify-content: space-between;
+        }
 
-    .modal-link.primary:hover {
-      background-color: #000000;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    }
+        .project-card h3 {
+            font-weight: 600;
+            font-size: 1.125rem;
+            /* text-lg */
+            color: #1d1d1f;
+            margin-bottom: 0.5rem;
+        }
 
-    .modal-link.secondary {
-      background-color: #e5e7eb;
-      color: #333333;
-      border: 1px solid #d1d5db;
-    }
+        .project-card p.description {
+            font-weight: 400;
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            width: 65%
+        }
 
-    .modal-link.secondary:hover {
-      background-color: #d1d5db;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    }
-  </style>
-  <!-- <link rel="stylesheet" href="responsive.css" /> -->
+        .project-action-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            /* full rounded */
+            border: 1px solid #d1d5db;
+            /* Tailwind gray-300 */
+            background-color: transparent;
+            color: #333333;
+            font-size: 0.875rem;
+            /* text-sm */
+            font-weight: 500;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            text-decoration: none;
+            /* Remove underline for links */
+        }
+
+        .project-action-button:hover {
+            background-color: #e5e7eb;
+            /* Tailwind gray-200 */
+            transform: translateY(-2px);
+        }
+
+        .project-action-button svg {
+            margin-left: 0.5rem;
+            width: 16px;
+            height: 16px;
+            fill: currentColor;
+        }
+
+        .project-diagonal-visual {
+            position: absolute;
+            top: -20%;
+            right: -20%;
+            /* Start slightly off-card */
+            width: 100%;
+            height: 100%;
+            background-color: transparent;
+            /* A subtle background color */
+            transform: rotate(20deg) scale(1.2);
+            /* Adjust rotation and scale for desired diagonal effect */
+            transform-origin: bottom left;
+            z-index: 5;
+            /* Below text, above card background */
+            pointer-events: none;
+            /* Allow clicks through this visual layer */
+            opacity: 0.8;
+            /* Slight transparency */
+        }
+
+        .project-diagonal-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0.5;
+            /* Make image slightly transparent over background color */
+        }
+
+        /* Modal specific styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            /* Dark overlay */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            /* Ensure it's on top of everything */
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+            transform: translateY(-20px);
+            /* Initial slight lift */
+            opacity: 0;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            position: relative;
+        }
+
+        .modal-overlay.show .modal-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .modal-close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #888;
+            transition: color 0.2s ease;
+        }
+
+        .modal-close-button:hover {
+            color: #333;
+        }
+
+        /* --- Custom Split Email Button Styles --- */
+        .email-compound-button-container {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            height: 48px;
+            /* Fixed height for consistent look */
+            margin-bottom: 0.75rem;
+            background-color: #1d1d1f;
+            /* Primary dark color */
+            color: #ffffff;
+            /* White text */
+            border: 1px solid #1d1d1f;
+            /* Dark border for primary */
+            border-radius: 9999px;
+            /* Overall capsule shape */
+            overflow: hidden;
+            /* Crucial to clip inner elements to this radius */
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .email-compound-button-container:has(a:hover) {
+            /* Styles for the container when its <a> is hovered */
+            background-color: #000000;
+            border-color: #000000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+
+        .copy-icon-part:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background-color: #000000;
+            /* Pure black on hover */
+            border-color: #000000;
+            /* Pure black border on hover */
+        }
+
+        .email-compound-button-container .email-text-part {
+            flex-grow: 1;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1.5rem;
+            text-decoration: none;
+            font-weight: 600;
+            white-space: nowrap;
+            background-color: transparent;
+            /* Inherit from parent */
+            color: inherit;
+            /* Inherit from parent */
+            border-top-left-radius: 9999px;
+            /* Left side fully rounded */
+            border-bottom-left-radius: 9999px;
+            border-top-right-radius: 0;
+            /* No right border-radius for this part */
+            border-bottom-right-radius: 0;
+            border-right: 1px solid rgba(255, 255, 255, 0.2);
+            /* Subtle white separator */
+            transition: border-color 0.2s ease;
+        }
+
+        .email-compound-button-container:hover .email-text-part {
+            border-color: rgba(255, 255, 255, 0.3);
+            /* Slightly more visible on hover */
+        }
+
+        .email-compound-button-container .copy-icon-part {
+            flex-shrink: 0;
+            width: 48px;
+            /* Fixed width for the circular part */
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            background-color: transparent;
+            /* Inherit from parent */
+            color: inherit;
+            /* Inherit from parent */
+            /* This part gets its roundness from the parent's overflow:hidden and its own 100% height/width */
+            border-radius: 0 9999px 9999px 0;
+            /* Right side fully rounded */
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+        }
+
+        /* Feedback states for the copy icon part */
+        .copy-icon-part.success {
+            background-color: #d1d5db !important;
+            /* Green */
+            border-color: #d1d5db !important;
+            box-shadow: none !important;
+        }
+
+        /* General modal link style for single buttons (used for LinkedIn, GitHub, Resume) */
+        .modal-link {
+            display: block;
+            padding: 0.8rem 1.5rem;
+            margin-bottom: 0.75rem;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+            cursor: pointer;
+            border-radius: 9999px;
+            /* All individual links fully rounded */
+        }
+
+        /* General hover for individual modal links */
+        .modal-link:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Primary color for buttons - now directly reflects the dark button in the image */
+        .modal-link.primary {
+            background-color: #1d1d1f;
+            color: #ffffff;
+            border: 1px solid #1d1d1f;
+        }
+
+        .modal-link.primary:hover {
+            background-color: #000000;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-color: #000000;
+        }
+
+        /* Secondary color for buttons - now directly reflects the light grey buttons in the image */
+        .modal-link.secondary {
+            background-color: #e5e7eb;
+            /* Light gray from image */
+            color: #333333;
+            /* Dark text from image */
+            border: 1px solid #d1d5db;
+            /* Light grey border from image */
+        }
+
+        .modal-link.secondary:hover {
+            background-color: #d1d5db;
+            /* Slightly darker grey on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-color: #c0c0c0;
+            /* Slightly darker border on hover */
+        }
+    </style>
+    <link rel="stylesheet" href="responsive.css" />
 </head>
 
 <body>
-  <div class="grid" id="grid"></div>
-  <div class="phone-name" id="phone-name">
-    <img src="logo.png" alt="Logo" class="logo-image" />
-  </div>
-  <div class="pc-name" id="pc-name">
-    Jean Cabrera
-    <span class="zcool-kuaile">
-      [<strong>陈</strong>嘉<strong>诚</strong>]
-    </span>
-  </div>
-  <div class="portfolio" id="portfolio" aria-live="polite">
-    <div class="w-full portfolio-width mx-auto flex flex-col items-center">
-      <header class="w-full flex items-center justify-between py-6 px-4 md:px-0 backdrop-blur-sm ">
-        <div class="flex items-center space-x-2">
-          <span class="text-gray-800 text-lg font-semibold">Jean Cabrera</span>
-          <span class="text-gray-400 text-lg hidden md:inline zcool-kuaile"><strong>陈</strong>嘉<strong>诚</strong></span>
-        </div>
-        <div class="flex bg-gray-200 rounded-full p-1 nav-toggle-group" role="tablist" aria-label="Main Navigation"
-          id="pc-nav">
-          <!-- The new moving indicator element -->
-          <div id="nav-indicator" class="nav-indicator"></div>
-
-          <button id="work-tab" class="nav-toggle-button nav-toggle-active" role="tab" aria-selected="true"
-            aria-controls="work-content">Experience</button>
-          <button id="info-tab" class="nav-toggle-button nav-toggle-inactive" role="tab" aria-selected="false"
-            aria-controls="info-content">About</button>
-        </div>
-        <!-- UPDATED: "Let's Connect" button now triggers a modal -->
-        <div class="flex items-center header-links phone-links" id="pc-link">
-          <button id="connect-button"
-            class="bg-gray-800 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg hover:bg-gray-900 transition duration-300 ease-in-out transform hover:-translate-y-1">
-            Let's Connect.
-          </button>
-        </div>
-      </header>
-      <section class="window-card mt-8 w-full">
-        <div id="work-content" class="main-content-area md:text-left">
-          <p class="text-gray-600 text-sm md:text-lg font-medium mb-4">
-            I don't just solve problems, I unlock opportunities.
-          </p>
-          <h1 class="text-gray-900 text-3xl md:text-4xl lg:text-6xl font-bold main-headline">
-            <span id="typewriter-text" class="headline-gradient" aria-live="polite"></span><span class="cursor"></span>
-          </h1>
-          <p class="text-gray-600 smart-text md:text-md lg:text-lg sub-text mb-2 text-right mt-6">
-            <b>Smart moves need the right partner.</b>
-          </p>
-          <p class="text-gray-400 text-xs md:text-md lg:text-lg sub-text text-right">
-            Let’s work together!
-          </p>
-        </div>
-
-
-        <div id="info-content" class="hidden main-content-area md:text-left">
-          <h2 class="text-gray-900 text-2xl md:text-3xl font-bold mb-4">About Me</h2>
-          <p class="text-gray-700 text-base md:text-lg mb-4">
-            Hello! I'm Jean Cabrera
-          </p>
-          <p class="text-gray-700 text-base md:text-lg mb-4">
-
-          </p>
-          <p class="text-gray-700 text-base md:text-lg">
-
-          </p>
-        </div>
-      </section>
-      <section class="projects mt-8 w-full">
-        <div id="projects-section" class="mt-8">
-          <h2 class="text-gray-900 text-2xl md:text-3xl font-bold mb-4">My Projects</h2>
-          <div class="projects-grid">
-            <div class="project-card">
-              <div class="project-card-content">
-                <div>
-                  <h3>OrganizeIT</h3>
-                  <p class="description">A mobile cashier application equipped with barcode scanning functionality,
-                    designed to streamline sales transactions directly from a smartphone.</p>
-                </div>
-                <a href="#" class="project-action-button">
-                  Snack
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                  </svg>
-                </a>
-              </div>
-              <div class="project-diagonal-visual">
-                <img src="OrganzeIT/preview.png" alt="Project Visual"
-                  onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-              </div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-content">
-                <div>
-                  <h3>Edge Detection</h3>
-                  <p class="description">A web application showcasing a ported edge detection algorithm, allowing
-                    users
-                    to upload images and visualize detected edges directly in their browser.</p>
-                </div>
-                <a href="#" class="project-action-button">
-                  Visit
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                  </svg>
-                </a>
-              </div>
-              <div class="project-diagonal-visual">
-                <img src="Edge Detection/preview.png" alt="Project Visual"
-                  onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-              </div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-content">
-                <div>
-                  <h3>Eagle Eye 4.0</h3>
-                  <p class="description">A mobile application that brings multiple image enhancement techniques
-                    directly
-                    to phones, enabling users to easily improve their photos on the go.</p>
-                </div>
-                <a href="#" class="project-action-button">
-                  Watch
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                  </svg>
-                </a>
-              </div>
-              <div class="project-diagonal-visual">
-                <img src="https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual" alt="Project Visual"
-                  onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-              </div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-content">
-                <div>
-                  <h3>ArcherHub</h3>
-                  <p class="description"> A distributed enrollment system with role-based access for admins, students,
-                    and professors. Students enroll in courses, and professors manage and grade them.</p>
-                </div>
-                <a href="#" class="project-action-button">
-                  Begin
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                  </svg>
-                </a>
-              </div>
-              <div class="project-diagonal-visual">
-                <img src="ArcherHub/preview.png" alt="Project Visual"
-                  onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-              </div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-content">
-                <div>
-                  <h3>Loan Management</h3>
-                  <p class="description">A web platform developed for Non-Governmental Organization administrators to
-                    efficiently manage their internal loaning systems.</p>
-                </div>
-                <a href="#" class="project-action-button">
-                  Subscribe
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                  </svg>
-                </a>
-              </div>
-              <div class="project-diagonal-visual">
-                <img src="Unbound/preview.png" Project Visual"
-                  onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-              </div>
-            </div>
-
-            <div class="project-card">
-              <div class="project-card-content">
-                <div>
-                  <h3>SnaccOverflow</h3>
-                  <p class="description">A website developed as a forum for food lovers, providing a dedicated
-                    platform
-                    for sharing recipes, culinary experiences, and food-related discussions.</p>
-                </div>
-                <a href="#" class="project-action-button">
-                  Explore
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path
-                      d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                  </svg>
-                </a>
-              </div>
-              <div class="project-diagonal-visual">
-                <img src="SnaccOverflow/preview.png" alt="Project Visual"
-                  onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
+    <div class="grid" id="grid"></div>
+    <div class="phone-name" id="phone-name">
+        <img src="logo.png" alt="Logo" class="logo-image" />
     </div>
-  </div>
-
-  <!-- MODAL STRUCTURE -->
-  <div id="connect-modal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="modal-close-button" id="modal-close-button">&times;</button>
-      <h3 class="text-2xl font-bold mb-6 text-gray-900">Ready to make a deal?</h3>
-      <div class="space-y-4">
-        <a href="mailto:jeancabrera2003@example.com" class="modal-link primary" rel="noopener noreferrer">
-          Email Me Directly
-        </a>
-        <a href="https://www.linkedin.com/in/jeanie3/" target="_blank" rel="noopener noreferrer"
-          class="modal-link secondary">
-          Find Me on LinkedIn
-        </a>
-        <a href="/path/to/your/resume.pdf" target="_blank" rel="noopener noreferrer" class="modal-link secondary">
-          View My Résumé
-        </a>
-      </div>
+    <div class="pc-name" id="pc-name">
+        Jean Cabrera
+        <span class="zcool-kuaile">
+            [<strong>陈</strong>嘉<strong>诚</strong>]
+        </span>
     </div>
-  </div>
-  <!-- END MODAL STRUCTURE -->
+    <div class="portfolio" id="portfolio" aria-live="polite">
+        <div class="w-full portfolio-width mx-auto flex flex-col items-center">
+            <header class="w-full flex items-center justify-between py-6 px-4 md:px-0 backdrop-blur-sm ">
+                <div class="flex items-center space-x-2">
+                    <span class="text-gray-800 text-lg font-semibold">Jean Cabrera</span>
+                    <span
+                        class="text-gray-400 text-lg hidden md:inline zcool-kuaile"><strong>陈</strong>嘉<strong>诚</strong></span>
+                </div>
+                <div class="flex bg-gray-200 rounded-full p-1 nav-toggle-group" role="tablist"
+                    aria-label="Main Navigation" id="pc-nav">
+                    <!-- The new moving indicator element -->
+                    <div id="nav-indicator" class="nav-indicator"></div>
+
+                    <button id="work-tab" class="nav-toggle-button nav-toggle-active" role="tab" aria-selected="true"
+                        aria-controls="work-content">Experience</button>
+                    <button id="info-tab" class="nav-toggle-button nav-toggle-inactive" role="tab" aria-selected="false"
+                        aria-controls="info-content">About</button>
+                </div>
+                <!-- "Let's Connect" button now triggers a modal -->
+                <div class="flex items-center header-links phone-links" id="pc-link">
+                    <button id="connect-button"
+                        class="bg-gray-800 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg hover:bg-gray-900 transition duration-300 ease-in-out transform hover:-translate-y-1">
+                        Let's Connect.
+                    </button>
+                </div>
+            </header>
+            <section class="window-card mt-8 w-full">
+                <div id="work-content" class="main-content-area md:text-left">
+                    <p class="text-gray-600 text-sm md:text-lg font-medium mb-4">
+                        I don't just solve problems, I unlock opportunities.
+                    </p>
+                    <h1 class="text-gray-900 text-3xl md:text-4xl lg:text-6xl font-bold main-headline">
+                        <span id="typewriter-text" class="headline-gradient" aria-live="polite"></span><span
+                            class="cursor"></span>
+                    </h1>
+                    <p class="text-gray-600 smart-text md:text-md lg:text-lg sub-text mb-2 text-right mt-6">
+                        <b>Smart moves need the right partner.</b>
+                    </p>
+                    <p class="text-gray-400 text-xs md:text-md lg:text-lg sub-text text-right">
+                        Let’s work together!
+                    </p>
+                </div>
 
 
-  <script>
-    const grid = document.getElementById('grid');
-    let name;
-    // Determine which element to control based on screen width
-    if (window.innerWidth <= 425) {
-      name = document.getElementById('phone-name');
-    } else {
-      name = document.getElementById('pc-name');
-    }
-    let tileSize = 100;
-    let tiles = [];
-    let totalTiles = 0;
-    let isFast;
+                <div id="info-content" class="hidden main-content-area md:text-left">
+                    <h2 class="text-gray-900 text-2xl md:text-3xl font-bold mb-4">About Me</h2>
+                    <p class="text-gray-700 text-base md:text-lg mb-4">
+                        Hello! I'm Jean Cabrera
+                    </p>
+                    <p class="text-gray-700 text-base md:text-lg mb-4">
 
-    /**
-     * Creates the background grid tiles and sets up their initial styles.
-     * Adjusts tile size based on screen dimensions for optimal performance.
-     */
-    function createTiles() {
-      tiles = [];
-      grid.innerHTML = ''; // Clear existing tiles
+                    </p>
+                    <p class="text-gray-700 text-base md:text-lg">
 
-      const containerWidth = window.innerWidth;
-      const containerHeight = window.innerHeight;
-      let cols = Math.ceil(containerWidth / tileSize);
-      let rows = Math.ceil(containerHeight / tileSize);
+                    </p>
+                </div>
+            </section>
+            <section class="projects mt-8 w-full">
+                <div id="projects-section" class="mt-8">
+                    <h2 class="text-gray-900 text-2xl md:text-3xl font-bold mb-4">My Projects</h2>
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-card-content">
+                                <div>
+                                    <h3>OrganizeIT</h3>
+                                    <p class="description">A mobile cashier application equipped with barcode scanning
+                                        functionality,
+                                        designed to streamline sales transactions directly from a smartphone.</p>
+                                </div>
+                                <a href="#" class="project-action-button">
+                                    Snack
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="project-diagonal-visual">
+                                <img src="OrganzeIT/preview.png" alt="Project Visual"
+                                    onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
+                            </div>
+                        </div>
 
-      // Increase tileSize if too many tiles are generated for performance
-      while (cols > 32 || rows > 16) {
-        isFast = true;
-        tileSize += 10;
-        cols = Math.ceil(containerWidth / tileSize);
-        rows = Math.ceil(containerHeight / tileSize);
-      }
-      totalTiles = rows * cols;
-      grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
-      grid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+                        <div class="project-card">
+                            <div class="project-card-content">
+                                <div>
+                                    <h3>Edge Detection</h3>
+                                    <p class="description">A web application showcasing a ported edge detection
+                                        algorithm, allowing
+                                        users
+                                        to upload images and visualize detected edges directly in their browser.</p>
+                                </div>
+                                <a href="#" class="project-action-button">
+                                    Visit
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="project-diagonal-visual">
+                                <img src="Edge Detection/preview.png" alt="Project Visual"
+                                    onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
+                            </div>
+                        </div>
 
-      for (let i = 0; i < rows * cols; i++) {
-        const tile = document.createElement('div');
-        tile.classList.add('tile');
-        const shade = 245 + Math.floor(Math.random() * 10);
-        tile.style.backgroundColor = `rgb(${shade},${shade},${shade})`;
-        tile.style.transform = 'scale(1)';
-        tile.style.zIndex = '1'; /* Ensure tiles are behind name/portfolio */
-        tile.style.opacity = '0.6';
-        grid.appendChild(tile);
-        tiles.push(tile);
-      }
-    }
+                        <div class="project-card">
+                            <div class="project-card-content">
+                                <div>
+                                    <h3>Eagle Eye 4.0</h3>
+                                    <p class="description">A mobile application that brings multiple image enhancement
+                                        techniques
+                                        directly
+                                        to phones, enabling users to easily improve their photos on the go.</p>
+                                </div>
+                                <a href="#" class="project-action-button">
+                                    Watch
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="project-diagonal-visual">
+                                <img src="https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual"
+                                    alt="Project Visual"
+                                    onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
+                            </div>
+                        </div>
 
-    /**
-     * Creates a delay using Promises.
-     * @param {number} ms - The delay time in milliseconds.
-     * @returns {Promise<void>} A Promise that resolves after the specified delay.
-     */
-    function delay(ms) {
-      return new Promise(resolve => setTimeout(resolve, ms));
-    }
+                        <div class="project-card">
+                            <div class="project-card-content">
+                                <div>
+                                    <h3>ArcherHub</h3>
+                                    <p class="description"> A distributed enrollment system with role-based access for
+                                        admins, students,
+                                        and professors. Students enroll in courses, and professors manage and grade
+                                        them.</p>
+                                </div>
+                                <a href="#" class="project-action-button">
+                                    Begin
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="project-diagonal-visual">
+                                <img src="ArcherHub/preview.png" alt="Project Visual"
+                                    onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
+                            </div>
+                        </div>
 
-    /**
-     * Shuffles an array using the Fisher-Yates algorithm.
-     * @param {Array} array - The array to shuffle.
-     * @returns {Array} A new shuffled array.
-     */
-    function shuffle(array) {
-      let arr = [...array];
-      for (let i = arr.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr;
-    }
+                        <div class="project-card">
+                            <div class="project-card-content">
+                                <div>
+                                    <h3>Loan Management</h3>
+                                    <p class="description">A web platform developed for Non-Governmental Organization
+                                        administrators to
+                                        efficiently manage their internal loaning systems.</p>
+                                </div>
+                                <a href="#" class="project-action-button">
+                                    Subscribe
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="project-diagonal-visual">
+                                <img src="Unbound/preview.png" Project Visual"
+                                    onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
+                            </div>
+                        </div>
 
-    /**
-     * Generator function to yield Fibonacci numbers.
-     * Used to determine group sizes for tile animations.
-     */
-    function* fibonacci() {
-      let a = 1,
-        b = 1;
-      while (true) {
-        yield a;
-        [a, b] = [b, a + b];
-      }
-    }
+                        <div class="project-card">
+                            <div class="project-card-content">
+                                <div>
+                                    <h3>SnaccOverflow</h3>
+                                    <p class="description">A website developed as a forum for food lovers, providing a
+                                        dedicated
+                                        platform
+                                        for sharing recipes, culinary experiences, and food-related discussions.</p>
+                                </div>
+                                <a href="#" class="project-action-button">
+                                    Explore
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                        <path
+                                            d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
+                                    </svg>
+                                </a>
+                            </div>
+                            <div class="project-diagonal-visual">
+                                <img src="SnaccOverflow/preview.png" alt="Project Visual"
+                                    onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-    /**
-     * Animates tiles to a specific color and scale in random Fibonacci-sized groups.
-     * @param {string} color - The target background color for the tiles.
-     * @param {number} scale - The target scale for the tiles.
-     */
-    async function animateTilesToColorRandomGroups(color, scale) {
-      let shuffledTiles = shuffle(tiles);
-      let index = 0;
-      const fibGen = fibonacci();
+        </div>
+    </div>
 
-      while (index < shuffledTiles.length) {
-        const groupSize = fibGen.next().value;
-        const actualGroupSize = Math.min(groupSize, shuffledTiles.length - index);
-        const group = shuffledTiles.slice(index, index + actualGroupSize);
+    <!-- MODAL STRUCTURE -->
+    <div id="connect-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close-button" id="modal-close-button">&times;</button>
+            <h3 class="text-2xl font-bold mb-6 text-gray-900">Ready to make a deal?</h3>
+            <div class="space-y-4">
+                <!-- Email Link and Copy Button Side-by-Side (Split Button) -->
+                <div class="email-compound-button-container">
+                    <!-- Mailto link (primary action) -->
+                    <a id="email-me-link" href="mailto:jeancabrera2003@gmail.com" class="email-text-part"
+                        rel="noopener noreferrer">
+                        Email Me Directly
+                    </a>
+                    <!-- Copy email button (secondary/fallback action) -->
+                    <button id="copy-email-button-icon" class="copy-icon-part" title="Copy Email">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
+                            <path
+                                d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
+                        </svg>
+                    </button>
+                </div>
 
-        for (const tile of group) {
-          tile.style.backgroundColor = color;
-          tile.style.transform = `scale(${scale})`;
-          tile.style.zIndex = '1';
-          tile.style.opacity = '0.6'; /* Keep opacity consistent */
-          if (isFast) {
-            await delay(1); // Shorter delay for faster animation on smaller screens/more tiles
-          } else {
-            await delay(4);
-          }
-        }
-        index += actualGroupSize;
-        if (isFast) {
-          await delay(4);
+                <!-- LinkedIn link -->
+                <a href="https://www.linkedin.com/in/jeanie3/" target="_blank" rel="noopener noreferrer"
+                    class="modal-link secondary">
+                    Find Me on LinkedIn
+                </a>
+                <!-- GitHub link -->
+                <a href="https://github.com/Skillial" target="_blank" rel="noopener noreferrer"
+                    class="modal-link secondary">
+                    Check Out My GitHub
+                </a>
+                <!-- Resume link -->
+                <a href="Jean Cabrera-Resume.pdf" target="_blank" rel="noopener noreferrer"
+                    class="modal-link secondary">
+                    View My Résumé
+                </a>
+            </div>
+        </div>
+    </div>
+    <!-- END MODAL STRUCTURE -->
+
+
+    <script>
+        const grid = document.getElementById('grid');
+        let name;
+        // Determine which element to control based on screen width
+        if (window.innerWidth <= 425) {
+            name = document.getElementById('phone-name');
         } else {
-          await delay(12);
+            name = document.getElementById('pc-name');
         }
-      }
-    }
+        let tileSize = 100;
+        let tiles = [];
+        let totalTiles = 0;
+        let isFast;
 
-    /**
-     * Animates tiles back to random shades of white, in random Fibonacci-sized groups.
-     * @param {string} color - The target background color for the tiles.
-     * @param {number} scale - The target scale for the tiles.
-     */
-    async function animateTilesToRandomWhite() {
-      let shuffledTiles = shuffle(tiles);
-      let index = 0;
-      const fibGen = fibonacci();
+        /**
+         * Creates the background grid tiles and sets up their initial styles.
+         * Adjusts tile size based on screen dimensions for optimal performance.
+         */
+        function createTiles() {
+            tiles = [];
+            grid.innerHTML = ''; // Clear existing tiles
 
-      while (index < shuffledTiles.length) {
-        const groupSize = fibGen.next().value;
-        const actualGroupSize = Math.min(groupSize, shuffledTiles.length - index);
-        const group = shuffledTiles.slice(index, index + actualGroupSize);
+            const containerWidth = window.innerWidth;
+            const containerHeight = window.innerHeight;
+            let cols = Math.ceil(containerWidth / tileSize);
+            let rows = Math.ceil(containerHeight / tileSize);
 
-        for (const tile of group) {
-          const shade = 245 + Math.floor(Math.random() * 10);
-          tile.style.backgroundColor = `rgb(${shade},${shade},${shade})`;
-          tile.style.transform = 'scale(1)';
-          tile.style.zIndex = '3'; tile.style.opacity = '1'; /* Return to full opacity */
-          if (!isFast) {
-            await delay(4);
-          }
-        }
+            // Increase tileSize if too many tiles are generated for performance
+            while (cols > 32 || rows > 16) {
+                isFast = true;
+                tileSize += 10;
+                cols = Math.ceil(containerWidth / tileSize);
+                rows = Math.ceil(containerHeight / tileSize);
+            }
+            totalTiles = rows * cols;
+            grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+            grid.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
 
-        index += actualGroupSize;
-        if (!isFast) {
-          await delay(8);
-        }
-      }
-    }
-
-    const typewriterTextElement = document.getElementById('typewriter-text');
-    const phrases = [
-      "Intuitive user experiences.",
-      "Actionable data insights.",
-      "Secure system architecture.",
-      "Smart financial solutions."
-    ];
-
-    let phraseIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typingSpeed = 70;
-    let deletingSpeed = 40;
-    let pauseBeforeDelete = 1500;
-    let pauseBeforeType = 500;
-    let typewriterTimeoutId;
-    function typeWriter() {
-      const currentPhrase = phrases[phraseIndex];
-
-      clearTimeout(typewriterTimeoutId); // Clear any existing timeout to prevent multiple calls
-
-      if (isDeleting) {
-        // Deleting characters
-        typewriterTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
-        charIndex--;
-
-        if (charIndex === 0) {
-          // Finished deleting, switch to typing next phrase
-          isDeleting = false;
-          phraseIndex = (phraseIndex + 1) % phrases.length;
-          typewriterTimeoutId = setTimeout(typeWriter, pauseBeforeType);
-          return;
+            for (let i = 0; i < rows * cols; i++) {
+                const tile = document.createElement('div');
+                tile.classList.add('tile');
+                const shade = 245 + Math.floor(Math.random() * 10);
+                tile.style.backgroundColor = `rgb(${shade},${shade},${shade})`;
+                tile.style.transform = 'scale(1)';
+                tile.style.zIndex = '1'; /* Ensure tiles are behind name/portfolio */
+                tile.style.opacity = '0.6';
+                grid.appendChild(tile);
+                tiles.push(tile);
+            }
         }
 
-        typewriterTimeoutId = setTimeout(typeWriter, deletingSpeed);
-      } else {
-        // Typing characters
-        typewriterTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
-        charIndex++;
-
-        if (charIndex === currentPhrase.length) {
-          // Finished typing, pause before deleting
-          isDeleting = true;
-          typewriterTimeoutId = setTimeout(typeWriter, pauseBeforeDelete);
-          return;
+        /**
+         * Creates a delay using Promises.
+         * @param {number} ms - The delay time in milliseconds.
+         * @returns {Promise<void>} A Promise that resolves after the specified delay.
+         */
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
         }
 
-        typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
-      }
-    }
+        /**
+         * Shuffles an array using the Fisher-Yates algorithm.
+         * @param {Array} array - The array to shuffle.
+         * @returns {Array} A new shuffled array.
+         */
+        function shuffle(array) {
+            let arr = [...array];
+            for (let i = arr.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+            return arr;
+        }
 
-    let workTab;
-    let infoTab;
-    let workContent;
-    let infoContent;
-    let navIndicator; // Reference to the new indicator element
-    function updateIndicator(targetButton) {
-      if (!navIndicator || !targetButton) return;
+        /**
+         * Generator function to yield Fibonacci numbers.
+         * Used to determine group sizes for tile animations.
+         */
+        function* fibonacci() {
+            let a = 1,
+                b = 1;
+            while (true) {
+                yield a;
+                [a, b] = [b, a + b];
+            }
+        }
 
-      navIndicator.style.left = `${targetButton.offsetLeft}px`;
-      navIndicator.style.width = `${targetButton.offsetWidth}px`;
-    }
+        /**
+         * Animates tiles to a specific color and scale in random Fibonacci-sized groups.
+         * @param {string} color - The target background color for the tiles.
+         * @param {number} scale - The target scale for the tiles.
+         */
+        async function animateTilesToColorRandomGroups(color, scale) {
+            let shuffledTiles = shuffle(tiles);
+            let index = 0;
+            const fibGen = fibonacci();
 
-    function switchTab(activeSectionId) {
-      let targetButton;
+            while (index < shuffledTiles.length) {
+                const groupSize = fibGen.next().value;
+                const actualGroupSize = Math.min(groupSize, shuffledTiles.length - index);
+                const group = shuffledTiles.slice(index, index + actualGroupSize);
 
-      if (activeSectionId === 'work-content') {
-        workContent.classList.remove('hidden');
-        infoContent.classList.add('hidden');
+                for (const tile of group) {
+                    tile.style.backgroundColor = color;
+                    tile.style.transform = `scale(${scale})`;
+                    tile.style.zIndex = '1';
+                    tile.style.opacity = '0.6'; /* Keep opacity consistent */
+                    if (isFast) {
+                        await delay(1); // Shorter delay for faster animation on smaller screens/more tiles
+                    } else {
+                        await delay(4);
+                    }
+                }
+                index += actualGroupSize;
+                if (isFast) {
+                    await delay(4);
+                } else {
+                    await delay(12);
+                }
+            }
+        }
 
-        workTab.classList.add('nav-toggle-active');
-        workTab.classList.remove('nav-toggle-inactive');
-        workTab.setAttribute('aria-selected', 'true');
+        /**
+         * Animates tiles back to random shades of white, in random Fibonacci-sized groups.
+         * @param {string} color - The target background color for the tiles.
+         * @param {number} scale - The target scale for the tiles.
+         */
+        async function animateTilesToRandomWhite() {
+            let shuffledTiles = shuffle(tiles);
+            let index = 0;
+            const fibGen = fibonacci();
 
-        infoTab.classList.add('nav-toggle-inactive');
-        infoTab.classList.remove('nav-toggle-active');
-        infoTab.setAttribute('aria-selected', 'false');
+            while (index < shuffledTiles.length) {
+                const groupSize = fibGen.next().value;
+                const actualGroupSize = Math.min(groupSize, shuffledTiles.length - index);
+                const group = shuffledTiles.slice(index, index + actualGroupSize);
 
-        targetButton = workTab;
-        clearTimeout(typewriterTimeoutId);
-        typewriterTextElement.textContent = phrases[0].substring(0, 1);
-        phraseIndex = 0;
-        charIndex = 1;
-        isDeleting = false;
-        typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
-      } else if (activeSectionId === 'info-content') {
-        infoContent.classList.remove('hidden');
-        workContent.classList.add('hidden');
+                for (const tile of group) {
+                    const shade = 245 + Math.floor(Math.random() * 10);
+                    tile.style.backgroundColor = `rgb(${shade},${shade},${shade})`;
+                    tile.style.transform = 'scale(1)';
+                    tile.style.zIndex = '3'; tile.style.opacity = '1'; /* Return to full opacity */
+                    if (!isFast) {
+                        await delay(4);
+                    }
+                }
 
-        infoTab.classList.add('nav-toggle-active');
-        infoTab.classList.remove('nav-toggle-inactive');
-        infoTab.setAttribute('aria-selected', 'true');
+                index += actualGroupSize;
+                if (!isFast) {
+                    await delay(8);
+                }
+            }
+        }
 
-        workTab.classList.add('nav-toggle-inactive');
-        workTab.classList.remove('nav-toggle-active');
-        workTab.setAttribute('aria-selected', 'false');
+        const typewriterTextElement = document.getElementById('typewriter-text');
+        const phrases = [
+            "Intuitive user experiences.",
+            "Actionable data insights.",
+            "Secure system architecture.",
+            "Smart financial solutions."
+        ];
 
-        targetButton = infoTab;
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typingSpeed = 70;
+        let deletingSpeed = 40;
+        let pauseBeforeDelete = 1500;
+        let pauseBeforeType = 500;
+        let typewriterTimeoutId;
+        function typeWriter() {
+            const currentPhrase = phrases[phraseIndex];
 
-        // Stop typewriter effect for "About" tab
-        clearTimeout(typewriterTimeoutId);
-        typewriterTextElement.textContent = ""; // Clear text
-        charIndex = 0;
-        isDeleting = false;
-      }
-      // Update the indicator's position and size to match the target button
-      updateIndicator(targetButton);
-    }
+            clearTimeout(typewriterTimeoutId); // Clear any existing timeout to prevent multiple calls
 
-    // Modal elements
-    const connectButton = document.getElementById('connect-button');
-    const connectModal = document.getElementById('connect-modal');
-    const modalCloseButton = document.getElementById('modal-close-button');
+            if (isDeleting) {
+                // Deleting characters
+                typewriterTextElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
 
-    // Function to show the modal
-    function showModal() {
-      connectModal.classList.add('show');
-      document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-    }
+                if (charIndex === 0) {
+                    // Finished deleting, switch to typing next phrase
+                    isDeleting = false;
+                    phraseIndex = (phraseIndex + 1) % phrases.length;
+                    typewriterTimeoutId = setTimeout(typeWriter, pauseBeforeType);
+                    return;
+                }
 
-    // Function to hide the modal
-    function hideModal() {
-      connectModal.classList.remove('show');
-      document.body.style.overflow = ''; // Restore scrolling
-    }
+                typewriterTimeoutId = setTimeout(typeWriter, deletingSpeed);
+            } else {
+                // Typing characters
+                typewriterTextElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
 
-    // Event listeners for modal
-    connectButton.addEventListener('click', showModal);
-    modalCloseButton.addEventListener('click', hideModal);
-    // Hide modal if clicking outside the content
-    connectModal.addEventListener('click', (event) => {
-      if (event.target === connectModal) {
-        hideModal();
-      }
-    });
+                if (charIndex === currentPhrase.length) {
+                    // Finished typing, pause before deleting
+                    isDeleting = true;
+                    typewriterTimeoutId = setTimeout(typeWriter, pauseBeforeDelete);
+                    return;
+                }
 
-    async function runSequence() {
-      // Hide portfolio and name initially
-      portfolio.classList.remove('show');
-      name.classList.remove('show');
+                typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
+            }
+        }
 
-      // Animate grid tiles to a specific color
-      await animateTilesToColorRandomGroups('#f5f5f7', 0.96);
+        let workTab;
+        let infoTab;
+        let workContent;
+        let infoContent;
+        let navIndicator; // Reference to the new indicator element
+        function updateIndicator(targetButton) {
+            if (!navIndicator || !targetButton) return;
 
-      // Show the name (Jean Cabrera or logo)
-      name.classList.add('show');
-      await delay(2000); // Pause for a moment
-      await animateTilesToRandomWhite();
-      name.classList.remove('show');
-      workTab = document.getElementById('work-tab');
-      infoTab = document.getElementById('info-tab');
-      workContent = document.getElementById('work-content');
-      infoContent = document.getElementById('info-content');
-      navIndicator = document.getElementById('nav-indicator'); // Get reference to the indicator
-      workTab.addEventListener('click', () => switchTab('work-content'));
-      infoTab.addEventListener('click', () => switchTab('info-content'));
-      portfolio.classList.add('show');
-      document.body.classList.add('portfolio-active');
-      await animateTilesToColorRandomGroups('#f5f5f7', 0.96);
-      typewriterTextElement.textContent = phrases[0].substring(0, 1);
-      typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
-      switchTab('work-content');
-    }
+            navIndicator.style.left = `${targetButton.offsetLeft}px`;
+            navIndicator.style.width = `${targetButton.offsetWidth}px`;
+        }
 
-    window.onload = () => {
-      createTiles(); // Create the initial grid
-      runSequence(); // Start the animation sequence
-    };
+        function switchTab(activeSectionId) {
+            let targetButton;
 
-    window.addEventListener('resize', () => {
-      const activeTab = document.querySelector('.nav-toggle-button.nav-toggle-active');
-      if (activeTab) {
-        updateIndicator(activeTab);
-      }
-    });
-  </script>
+            if (activeSectionId === 'work-content') {
+                workContent.classList.remove('hidden');
+                infoContent.classList.add('hidden');
+
+                workTab.classList.add('nav-toggle-active');
+                workTab.classList.remove('nav-toggle-inactive');
+                workTab.setAttribute('aria-selected', 'true');
+
+                infoTab.classList.add('nav-toggle-inactive');
+                infoTab.classList.remove('nav-toggle-active');
+                infoTab.setAttribute('aria-selected', 'false');
+
+                targetButton = workTab;
+                clearTimeout(typewriterTimeoutId);
+                typewriterTextElement.textContent = phrases[0].substring(0, 1);
+                phraseIndex = 0;
+                charIndex = 1;
+                isDeleting = false;
+                typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
+            } else if (activeSectionId === 'info-content') {
+                infoContent.classList.remove('hidden');
+                workContent.classList.add('hidden');
+
+                infoTab.classList.add('nav-toggle-active');
+                infoTab.classList.remove('nav-toggle-inactive');
+                infoTab.setAttribute('aria-selected', 'true');
+
+                workTab.classList.add('nav-toggle-inactive');
+                workTab.classList.remove('nav-toggle-active');
+                workTab.setAttribute('aria-selected', 'false');
+
+                targetButton = infoTab;
+
+                // Stop typewriter effect for "About" tab
+                clearTimeout(typewriterTimeoutId);
+                typewriterTextElement.textContent = ""; // Clear text
+                charIndex = 0;
+                isDeleting = false;
+            }
+            // Update the indicator's position and size to match the target button
+            updateIndicator(targetButton);
+        }
+
+        // Modal elements
+        const connectButton = document.getElementById('connect-button');
+        const connectModal = document.getElementById('connect-modal');
+        const modalCloseButton = document.getElementById('modal-close-button');
+
+        // Function to show the modal
+        function showModal() {
+            connectModal.classList.add('show');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+        }
+
+        // Function to hide the modal
+        function hideModal() {
+            connectModal.classList.remove('show');
+            document.body.style.overflow = ''; // Restore scrolling
+        }
+
+        // Event listeners for modal
+        connectButton.addEventListener('click', showModal);
+        modalCloseButton.addEventListener('click', hideModal);
+        // Hide modal if clicking outside the content
+        connectModal.addEventListener('click', (event) => {
+            if (event.target === connectModal) {
+                hideModal();
+            }
+        });
+
+        // JavaScript for email copy button (icon version)
+        const copyEmailIconButton = document.getElementById('copy-email-button-icon');
+        const userEmail = "jeancabrera2003@gmail.com"; // Your email address
+
+        if (copyEmailIconButton) {
+            copyEmailIconButton.addEventListener('click', function () {
+                navigator.clipboard.writeText(userEmail)
+                    .then(() => {
+                        copyEmailIconButton.classList.add('success');
+                        setTimeout(() => {
+                            copyEmailIconButton.classList.remove('success');
+                        }, 800);
+                    })
+                    .catch(err => {
+                        console.error('Failed to copy email: ', err);
+                        copyEmailIconButton.classList.remove('success');
+                    });
+            });
+        }
+
+        async function runSequence() {
+            // Hide portfolio and name initially
+            portfolio.classList.remove('show');
+            name.classList.remove('show');
+
+            // Animate grid tiles to a specific color
+            await animateTilesToColorRandomGroups('#f5f5f7', 0.96);
+
+            // Show the name (Jean Cabrera or logo)
+            name.classList.add('show');
+            await delay(2000); // Pause for a moment
+            await animateTilesToRandomWhite();
+            name.classList.remove('show');
+            workTab = document.getElementById('work-tab');
+            infoTab = document.getElementById('info-tab');
+            workContent = document.getElementById('work-content');
+            infoContent = document.getElementById('info-content');
+            navIndicator = document.getElementById('nav-indicator'); // Get reference to the indicator
+            workTab.addEventListener('click', () => switchTab('work-content'));
+            infoTab.addEventListener('click', () => switchTab('info-content'));
+            portfolio.classList.add('show');
+            document.body.classList.add('portfolio-active');
+            await animateTilesToColorRandomGroups('#f5f5f7', 0.96);
+            typewriterTextElement.textContent = phrases[0].substring(0, 1);
+            typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
+            switchTab('work-content');
+        }
+
+        window.onload = () => {
+            createTiles(); // Create the initial grid
+            runSequence(); // Start the animation sequence
+        };
+
+        window.addEventListener('resize', () => {
+            const activeTab = document.querySelector('.nav-toggle-button.nav-toggle-active');
+            if (activeTab) {
+                updateIndicator(activeTab);
+            }
+        });
+    </script>
 </body>
 
 </html>
