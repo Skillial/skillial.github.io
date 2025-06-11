@@ -29,7 +29,7 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    .grid {
+    .grid-bg {
       position: absolute;
       top: 0;
       left: 0;
@@ -507,10 +507,9 @@
 
     .about-me-img {
       height: auto;
-      max-width: 40%;
+      max-width: 50%;
       border-radius: 0.5rem;
       box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-      margin-top: 1rem;
     }
 
     .about-section-container {
@@ -534,12 +533,63 @@
       max-width: 600px;
       /* Optional: limit the maximum width of the text block */
     }
+
+    .tech-stack-section-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .text-experience-most {
+      color: #800080;
+      /* Reverted to the vibrant purple */
+    }
+
+    /* Black - Middle Experience (text color) */
+    .text-experience-middle {
+      color: #000000;
+      /* Pure black */
+    }
+
+    /* Gray - Low Experience (text color) */
+    .text-experience-low {
+      color: #aaaaaa;
+      /* A distinct light gray */
+    }
+
+    /* General styling for list items */
+    .tech-item {
+      /* No background or shadow now, text color changes based on experience */
+      @apply p-2 mb-2 rounded-lg font-semibold;
+      /* Removed bg-white and shadow-sm */
+    }
+
+    /* Legend styling for color swatches */
+    .swatch-most {
+      background-color: #800080;
+      /* Reverted to the vibrant purple */
+    }
+
+    .swatch-middle {
+      background-color: #000000;
+    }
+
+    .swatch-low {
+      background-color: #aaaaaa;
+
+    }
+
+    .tech-stack-card {
+      padding: 3rem;
+    }
   </style>
   <link rel="stylesheet" href="responsive.css" />
 </head>
 
 <body>
-  <div class="grid" id="grid"></div>
+  <div class="grid-bg" id="grid-bg"></div>
   <div class="phone-name" id="phone-name">
     <img src="logo.png" alt="Logo" class="logo-image" />
   </div>
@@ -728,6 +778,26 @@
                     onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
                 </div>
               </div>
+              <div class="project-card">
+                <div class="project-card-content">
+                  <div>
+                    <h3>Sportify</h3>
+                    <p class="description">A lo-fi prototype for a sport event scheduling platform that facilitates the
+                      creation and participation in local sports activities.</p>
+                  </div>
+                  <a href="#" class="project-action-button">
+                    Explore
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path
+                        d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
+                    </svg>
+                  </a>
+                </div>
+                <div class="project-diagonal-visual">
+                  <img src="Sportify/preview.png" alt="Project Visual"
+                    onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -739,20 +809,94 @@
             <div class="about-section-container">
               <img src="me.png" alt="Logo" class="about-me-img" />
               <div class="about-me-text">
-                <h2 class="text-gray-900 text-2xl md:text-3xl font-bold mb-12">About Me</h2>
+                <h1 class="text-gray-900 text-2xl md:text-3xl font-bold mt-4 mb-8">About Me</h1>
                 <p class="text-gray-700 text-base md:text-lg mb-8 mt-8">
                   I'm a Computer Science graduate with a passion for building innovative solutions that make a real
                   difference. I’m driven by curiosity and a strong desire to grow, constantly seeking opportunities to
                   learn, improve, and explore new ideas.
                 </p>
                 <p class="text-gray-700 text-base md:text-lg mb-8 mt-8">
-                  My interests span across <strong>software development</strong>, <strong>user experience</strong>,
-                  <strong>data science</strong>, <strong>security</strong>, </strong> and
-                  <strong>finance</strong>. In these fields,
-                  technology can create powerful, intuitive solutions and more intelligent systems I'm excited
-                  by challenges that let me blend creativity with logic, and I'm always looking to collaborate on
-                  meaningful projects that push boundaries.
+                  My interest lies in developing intuitive software that empowers users with data-driven insights. The
+                  aim is to build secure tools that guide individuals toward smarter, more cost-effective solutions.
+                  Where these technologies converge, powerful and intelligent systems are truly forged, and it's
+                  precisely these challenges that excite me. I love blending creativity with logic and always look for
+                  opportunities to collaborate on meaningful projects that push boundaries.
                 </p>
+              </div>
+            </div>
+            <div class="tech-stack-section-container">
+              <h1 class="text-gray-900 text-2xl md:text-3xl font-bold mt-4 mb-8 w-full text-center">Tech Stack</h1>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+                <div class="tech-stack-card">
+                  <h3 class="text-xl font-semibold mb-6 text-gray-700 border-b-2 border-gray-300 pb-2">Programming
+                    Languages</h3>
+                  <ul>
+                    <li class="tech-item text-experience-most">Python</li>
+                    <li class="tech-item text-experience-most">Java</li>
+                    <li class="tech-item text-experience-most">JavaScript</li>
+                    <li class="tech-item text-experience-middle">C#</li>
+                    <li class="tech-item text-experience-middle">Kotlin</li>
+                    <li class="tech-item text-experience-middle">C++</li>
+                    <li class="tech-item text-experience-middle">C</li>
+                    <li class="tech-item text-experience-low">x86 Assembly</li>
+                  </ul>
+                </div>
+
+                <!-- Column 2: Web Technologies & Databases -->
+                <div class="tech-stack-card">
+                  <h3 class="text-xl font-semibold mb-6 text-gray-700 border-b-2 border-gray-300 pb-2">Web Technologies
+                  </h3>
+                  <ul>
+                    <li class="tech-item text-experience-most">CSS</li>
+                    <li class="tech-item text-experience-middle">Bootstrap</li>
+                    <li class="tech-item text-experience-low">Tailwind CSS</li>
+                  </ul>
+
+                  <h3 class="text-xl font-semibold mt-8 mb-6 text-gray-700 border-b-2 border-gray-300 pb-2">Databases
+                  </h3>
+                  <ul>
+                    <li class="tech-item text-experience-most">MySQL</li>
+                    <li class="tech-item text-experience-middle">MongoDB</li>
+                    <li class="tech-item text-experience-middle">SQLite</li>
+                  </ul>
+                </div>
+
+                <!-- Column 3: Tools & Platforms & Legend -->
+                <div class="tech-stack-card">
+                  <div>
+                    <h3 class="text-xl font-semibold mb-6 text-gray-700 border-b-2 border-gray-300 pb-2">Tools &
+                      Platforms</h3>
+                    <ul>
+                      <li class="tech-item text-experience-most">Git</li>
+                      <li class="tech-item text-experience-most">Microsoft Office</li>
+                      <li class="tech-item text-experience-most">Google Suite</li>
+                      <li class="tech-item text-experience-middle">Figma</li>
+                      <li class="tech-item text-experience-middle">Canva</li>
+
+                    </ul>
+                  </div>
+
+                  <!-- Legend Section -->
+                  <div class="mt-8 pt-4 border-t-2 border-gray-300">
+                    <h3 class="text-xl font-semibold mb-4 text-gray-700">Legend: Experience Level</h3>
+                    <ul>
+                      <li class="flex items-center mb-2">
+                        <span class="w-5 h-5 rounded-full swatch-most mr-3 shadow-sm"></span>
+                        <span class="text-gray-700 font-medium">Most Experience</span>
+                      </li>
+                      <li class="flex items-center mb-2">
+                        <span class="w-5 h-5 rounded-full swatch-middle mr-3 shadow-sm"></span>
+                        <span class="text-gray-700 font-medium">Middle Experience</span>
+                      </li>
+                      <li class="flex items-center">
+                        <span class="w-5 h-5 rounded-full swatch-low mr-3 shadow-sm"></span>
+                        <span class="text-gray-700 font-medium">Low Experience</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+
               </div>
             </div>
           </div>
@@ -791,7 +935,7 @@
     </div>
   </div>
   <script>
-    const grid = document.getElementById('grid');
+    const grid = document.getElementById('grid-bg');
     let name;
     if (window.innerWidth <= 425) {
       name = document.getElementById('phone-name');
