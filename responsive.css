@@ -1,0 +1,104 @@
+    @media (max-width: 425px) and (min-width: 375px) {
+      .pc-name {
+        display: none;
+        /* Hide PC name on mobile */
+      }
+
+      .phone-name {
+        display: block;
+        /* Show phone name on mobile */
+      }
+
+      #pc-link {
+        display: none;
+      }
+
+      #pc-nav {
+        display: none;
+      }
+
+      .portfolio {
+        padding: 1rem;
+      }
+
+      .main-headline {
+        min-height: 120px;
+        text-align: center;
+        /* Keeps the text centered */
+        margin-bottom: 1.5rem;
+        padding-top: 1rem;
+      }
+
+      .smart-text {
+        font-size: 0.75rem;
+      }
+    }
+
+    @media(max-width:375px)and (min-width: 320px) {
+      .pc-name {
+        display: none;
+        /* Hide PC name on mobile */
+      }
+
+      .phone-name {
+        display: block;
+        /* Show phone name on mobile */
+      }
+
+      #pc-link {
+        display: none;
+      }
+
+      #pc-nav {
+        display: none;
+      }
+
+      .portfolio {
+        padding: 1rem;
+      }
+
+      .window-card {
+        max-width: 100%;
+      }
+
+      .main-headline {
+        min-height: 120px;
+      }
+    }
+
+    @media (max-width:320px) {
+      .pc-name {
+        display: none;
+        /* Hide PC name on mobile */
+      }
+
+      .phone-name {
+        display: block;
+        /* Show phone name on mobile */
+      }
+
+      #pc-link {
+        display: none;
+      }
+
+      #pc-nav {
+        display: none;
+      }
+
+      .portfolio {
+        padding: 0rem;
+        margin: 0rem;
+      }
+
+      .window-card {
+        max-width: 120%;
+      }
+
+      .main-headline {
+        min-height: 120px;
+      }
+
+      .smart-text {
+        font-size: 0.70rem
+      }
+    }
