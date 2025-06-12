@@ -19,7 +19,7 @@ body {
 }
 
 .grid-bg {
-    position: absolute;
+    position: fixed; /* Changed from absolute */
     top: 0;
     left: 0;
     width: 100%;
@@ -27,6 +27,7 @@ body {
     display: grid;
     user-select: none;
     pointer-events: none;
+    z-index: -1; /* Added this line */
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
 }
