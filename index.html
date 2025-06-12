@@ -21,7 +21,8 @@
     html,
     body {
       height: 100%;
-      overflow: hidden; /* Keep body overflow hidden by default */
+      overflow: auto;
+      /* Keep body overflow hidden by default */
       font-family: 'Spectral', serif;
       background: #f5f5f7;
       color: #1d1d1f;
@@ -150,7 +151,8 @@
       align-items: flex-start;
       padding: 2rem;
       color: #1a1a1a;
-      overflow: auto; /* Re-enabled overflow: auto here */
+      overflow: auto;
+      /* Re-enabled overflow: auto here */
     }
 
     .window-card {
@@ -654,17 +656,22 @@
       position: relative;
       width: 100%;
       /* Removed min-height here */
-      overflow-y: visible; /* Changed to visible to prevent inner scrollbar */
-      display: flex; /* Make it a flex container to manage sections */
-      flex-direction: column; /* Stack sections vertically */
+      overflow-y: visible;
+      /* Changed to visible to prevent inner scrollbar */
+      display: flex;
+      /* Make it a flex container to manage sections */
+      flex-direction: column;
+      /* Stack sections vertically */
     }
 
     .tab-content-section {
-      width: 100%; /* Ensure sections take full width */
+      width: 100%;
+      /* Ensure sections take full width */
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.5s ease-in-out;
-      position: absolute; /* Position sections absolutely within the container */
+      position: absolute;
+      /* Position sections absolutely within the container */
       top: 0;
       left: 0;
     }
@@ -672,7 +679,8 @@
     .tab-content-section.active {
       opacity: 1;
       pointer-events: auto;
-      position: static; /* Set to static when active to participate in normal flow */
+      position: static;
+      /* Set to static when active to participate in normal flow */
       z-index: 2;
     }
   </style>
@@ -875,7 +883,8 @@
                   <div class="project-card-content">
                     <div>
                       <h3>Sportify</h3>
-                      <p class="description">A lo-fi prototype for a sport event scheduling platform that facilitates the
+                      <p class="description">A lo-fi prototype for a sport event scheduling platform that facilitates
+                        the
                         creation and participation in local sports activities.</p>
                     </div>
                     <a href="#" class="project-action-button">
@@ -888,6 +897,26 @@
                   </div>
                   <div class="project-diagonal-visual">
                     <img src="projects/Sportify/preview.png" alt="Project Visual"
+                      onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
+                  </div>
+                </div>
+                <div class="project-card">
+                  <div class="project-card-content">
+                    <div>
+                      <h3>Phodd Fact</h3>
+                      <p class="description">A website that promotes Filipino dishes from various regions, showcasing
+                        the diverse culinary heritage of the Philippines.</p>
+                    </div>
+                    <a href="#" class="project-action-button">
+                      Explore
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path
+                          d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
+                      </svg>
+                    </a>
+                  </div>
+                  <div class="project-diagonal-visual">
+                    <img src="projects/Phood Fact/Preview.png" alt="Project Visual"
                       onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
                   </div>
                 </div>
@@ -938,7 +967,8 @@
 
                   <!-- Column 2: Web Technologies & Databases -->
                   <div class="tech-stack-card">
-                    <h3 class="text-xl font-semibold mb-6 text-gray-700 border-b-2 border-gray-300 pb-2">Web Technologies
+                    <h3 class="text-xl font-semibold mb-6 text-gray-700 border-b-2 border-gray-300 pb-2">Web
+                      Technologies
                     </h3>
                     <ul>
                       <li class="tech-item text-experience-most">CSS</li>
@@ -1042,7 +1072,8 @@
                 </div>
               </div>
               <div class="work-section-container">
-                <h1 class="text-gray-900 text-2xl md:text-3xl font-bold mt-12 mb-8 w-full text-center">Work Experience</h1>
+                <h1 class="text-gray-900 text-2xl md:text-3xl font-bold mt-12 mb-8 w-full text-center">Work Experience
+                </h1>
                 <div class="tech-stack-card w-full max-w-4xl">
                   <div class="space-y-6">
                     <div class="work-experience-entry">
@@ -1053,7 +1084,8 @@
                       <p class="text-gray-600 text-sm">May 2024 - July 2024</p>
                       <ul class="list-disc list-inside text-gray-600 text-sm ml-4">
                         <li>Developed a website for automated data generation for testing purposes.</li>
-                        <li>Set up databases and dashboards to compile sales and event data across seven business units.</li>
+                        <li>Set up databases and dashboards to compile sales and event data across seven business units.
+                        </li>
                         <li>Automated the formatting and uploading of files to the database using custom scripts.</li>
                         <li>Created 13 test scripts covering over 50 test cases for the Abenson Mobile Application.</li>
                         <li>Cleaned and standardized over 60,000 rows of duplicate and misspelled data.</li>
@@ -1263,45 +1295,51 @@
     }
 
     function switchTab(activeSectionId) {
-      let targetButton;
+      return new Promise((resolve) => {
+        let targetButton;
 
-      // Remove 'active' from all content sections first
-      workContent.classList.remove('active');
-      infoContent.classList.remove('active');
+        workContent.classList.remove('active');
+        infoContent.classList.remove('active');
 
-      // Update button states
-      workTab.classList.remove('nav-toggle-active');
-      workTab.classList.add('nav-toggle-inactive');
-      workTab.setAttribute('aria-selected', 'false');
+        workTab.classList.remove('nav-toggle-active');
+        workTab.classList.add('nav-toggle-inactive');
+        workTab.setAttribute('aria-selected', 'false');
 
-      infoTab.classList.remove('nav-toggle-active');
-      infoTab.classList.add('nav-toggle-inactive');
-      infoTab.setAttribute('aria-selected', 'false');
+        infoTab.classList.remove('nav-toggle-active');
+        infoTab.classList.add('nav-toggle-inactive');
+        infoTab.setAttribute('aria-selected', 'false');
 
-      if (activeSectionId === 'Experience') {
-        workContent.classList.add('active'); // Add active class
-        workTab.classList.add('nav-toggle-active');
-        workTab.classList.remove('nav-toggle-inactive');
-        workTab.setAttribute('aria-selected', 'true');
-        targetButton = workTab;
-        clearTimeout(typewriterTimeoutId);
-        typewriterTextElement.textContent = phrases[0].substring(0, 1);
-        phraseIndex = 0;
-        charIndex = 1;
-        isDeleting = false;
-        typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
-      } else if (activeSectionId === 'About') {
-        infoContent.classList.add('active'); // Add active class
-        infoTab.classList.add('nav-toggle-active');
-        infoTab.classList.remove('nav-toggle-inactive');
-        infoTab.setAttribute('aria-selected', 'true');
-        targetButton = infoTab;
-        clearTimeout(typewriterTimeoutId);
-        typewriterTextElement.textContent = ""; // Clear text
-        charIndex = 0;
-        isDeleting = false;
-      }
-      updateIndicator(targetButton);
+        if (activeSectionId === 'Experience') {
+          workContent.classList.add('active');
+          workTab.classList.add('nav-toggle-active');
+          workTab.classList.remove('nav-toggle-inactive');
+          workTab.setAttribute('aria-selected', 'true');
+          targetButton = workTab;
+
+          clearTimeout(typewriterTimeoutId);
+          typewriterTextElement.textContent = phrases[0].substring(0, 1);
+          phraseIndex = 0;
+          charIndex = 1;
+          isDeleting = false;
+          typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
+        } else if (activeSectionId === 'About') {
+          infoContent.classList.add('active');
+          infoTab.classList.add('nav-toggle-active');
+          infoTab.classList.remove('nav-toggle-inactive');
+          infoTab.setAttribute('aria-selected', 'true');
+          targetButton = infoTab;
+
+          clearTimeout(typewriterTimeoutId);
+          typewriterTextElement.textContent = "";
+          charIndex = 0;
+          isDeleting = false;
+        }
+
+        updateIndicator(targetButton);
+
+        // wait for layout to apply
+        setTimeout(resolve, 50); // you can fine-tune this
+      });
     }
 
     const connectButton = document.getElementById('connect-button');
@@ -1367,14 +1405,27 @@
       workContent.classList.add('tab-content-section');
       infoContent.classList.add('tab-content-section');
 
-      workTab.addEventListener('click', () => switchTab('Experience'));
-      infoTab.addEventListener('click', () => switchTab('About'));
+      workTab.addEventListener('click', () => {
+        switchTab('Experience').then(() => {
+          // Ensure the indicator is updated after switching tabs
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+      });
+
+      infoTab.addEventListener('click', () => {
+        switchTab('About').then(() => {
+          // Ensure the indicator is updated after switching tabs
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+
       switchTab('About')
       switchTab('Experience');
       portfolio.classList.add('show');
       document.body.classList.add('portfolio-active');
       await animateTilesToColorRandomGroups('#f5f5f7', 0.96);
-      typewriterTextElement.textContent = phrases[0].substring(0, 1); 
+      typewriterTextElement.textContent = phrases[0].substring(0, 1);
       typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
     }
 
