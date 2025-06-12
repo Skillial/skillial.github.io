@@ -545,7 +545,7 @@
         const shade = 245 + Math.floor(Math.random() * 10);
         tile.style.backgroundColor = `rgb(${shade},${shade},${shade})`;
         tile.style.transform = 'scale(1)';
-        tile.style.zIndex = '1'; /* Ensure tiles are behind name/portfolio */
+        tile.style.zIndex = '1';
         tile.style.opacity = '0.6';
         grid.appendChild(tile);
         tiles.push(tile);
@@ -570,6 +570,7 @@
         [a, b] = [b, a + b];
       }
     }
+
     async function animateTilesToColorRandomGroups(color, scale) {
       let shuffledTiles = shuffle(tiles);
       let index = 0;
@@ -611,6 +612,7 @@
           const shade = 245 + Math.floor(Math.random() * 10);
           tile.style.backgroundColor = `rgb(${shade},${shade},${shade})`;
           tile.style.transform = 'scale(1)';
+          // Tiles are temporarily brought to the front to cover the name.
           tile.style.zIndex = '3';
           tile.style.opacity = '1'; /* Return to full opacity */
           if (!isFast) {
@@ -674,79 +676,45 @@
       navIndicator.style.width = `${targetButton.offsetWidth}px`;
     }
 
-    // MODIFICATION: Switched to a display-based approach for tabs
     function switchTab(activeSectionId) {
       return new Promise((resolve) => {
-        let targetButton; // Variable to hold the reference to the active tab button
+        let targetButton; 
 
-        // --- Step 1: Hide all content sections initially ---
-        // Ensure both content areas are hidden before deciding which one to show.
         workContent.style.display = 'none';
         infoContent.style.display = 'none';
 
-        // --- Step 2: Deactivate all navigation tabs ---
-        // Remove active styling and accessibility attributes from both tabs.
         workTab.classList.remove('nav-toggle-active');
         workTab.classList.add('nav-toggle-inactive');
-        workTab.setAttribute('aria-selected', 'false'); // Indicate tab is not selected
+        workTab.setAttribute('aria-selected', 'false');
 
         infoTab.classList.remove('nav-toggle-active');
         infoTab.classList.add('nav-toggle-inactive');
-        infoTab.setAttribute('aria-selected', 'false'); // Indicate tab is not selected
+        infoTab.setAttribute('aria-selected', 'false');
 
-        // --- Step 3: Activate the selected tab and display its content ---
         if (activeSectionId === 'Experience') {
-          // Display the 'Experience' content section
           workContent.style.display = 'block';
-
-          // Apply active styling and accessibility attributes to the 'Work' tab
           workTab.classList.add('nav-toggle-active');
           workTab.classList.remove('nav-toggle-inactive');
-          workTab.setAttribute('aria-selected', 'true'); // Indicate tab is selected
-          targetButton = workTab; // Set target button for indicator update
-
-          // --- Typewriter Effect Management for 'Experience' tab ---
-          // Clear any existing typewriter timeout to stop ongoing animation.
+          workTab.setAttribute('aria-selected', 'true');
+          targetButton = workTab;
           clearTimeout(typewriterTimeoutId);
-          // Reset the typewriter text element to the first character of the first phrase.
           typewriterTextElement.textContent = phrases[0].substring(0, 1);
-          // Reset typewriter state variables.
           phraseIndex = 0;
           charIndex = 1;
           isDeleting = false;
-          // Start the typewriter animation for the 'Experience' section.
           typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
         } else if (activeSectionId === 'About') {
-          // Display the 'About' content section
           infoContent.style.display = 'block';
-
-          // Apply active styling and accessibility attributes to the 'Info' tab
           infoTab.classList.add('nav-toggle-active');
           infoTab.classList.remove('nav-toggle-inactive');
-          infoTab.setAttribute('aria-selected', 'true'); // Indicate tab is selected
-          targetButton = infoTab; // Set target button for indicator update
-
-          // --- Typewriter Effect Management for 'About' tab ---
-          // Clear any existing typewriter timeout to stop ongoing animation.
+          infoTab.setAttribute('aria-selected', 'true');
+          targetButton = infoTab; 
           clearTimeout(typewriterTimeoutId);
-          // Clear the typewriter text element's content as it's not used here.
           typewriterTextElement.textContent = "";
-          // Reset typewriter state variables.
           charIndex = 0;
-          isDeleting = false; // Ensure not in deleting state
+          isDeleting = false;
         }
-
-        // --- Step 4: Update the visual indicator ---
-        // Call a helper function (assumed to exist elsewhere) to visually update
-        // an indicator based on the newly active tab.
         updateIndicator(targetButton);
-
-        // --- Step 5: Resolve the Promise ---
-        // The promise is resolved immediately after all synchronous DOM manipulations
-        // and state updates within this function are completed.
-        // There is no need for a setTimeout here, as the DOM changes are applied synchronously
-        // by the browser. The previous setTimeout was likely intended to wait for a repaint,
-        // but for the promise's resolution, it's not strictly necessary to block.
         resolve();
       });
     }
@@ -756,12 +724,11 @@
     const modalCloseButton = document.getElementById('modal-close-button');
     function showModal() {
       connectModal.classList.add('show');
-      // MODIFICATION: The body no longer controls scrolling directly, but preventing scroll on the html/root element is better.
-      document.documentElement.style.overflow = 'hidden'; // Prevent scrolling when modal is open
+      document.documentElement.style.overflow = 'hidden';
     }
     function hideModal() {
       connectModal.classList.remove('show');
-      document.documentElement.style.overflow = ''; // Restore scrolling
+      document.documentElement.style.overflow = '';
     }
     connectButton.addEventListener('click', showModal);
     modalCloseButton.addEventListener('click', hideModal);
@@ -771,10 +738,9 @@
       }
     });
     const copyEmailIconButton = document.getElementById('copy-email-button-icon');
-    const userEmail = "jeancabrera2003@gmail.com"; // Your email address
+    const userEmail = "jeancabrera2003@gmail.com";
     if (copyEmailIconButton) {
       copyEmailIconButton.addEventListener('click', function () {
-        // Use document.execCommand for better compatibility in iframe environments
         const tempInput = document.createElement('textarea');
         tempInput.value = userEmail;
         document.body.appendChild(tempInput);
@@ -787,8 +753,6 @@
           }, 800);
         } catch (err) {
           console.error('Failed to copy email: ', err);
-          // Fallback for environments where execCommand might not work or is deprecated
-          // You might display a message to the user that copying failed
         } finally {
           document.body.removeChild(tempInput);
         }
@@ -796,23 +760,29 @@
     }
 
     async function runSequence() {
-
-      const portfolio = document.getElementById('portfolio'); // Ensure portfolio is defined
+      const portfolio = document.getElementById('portfolio');
+      const grid = document.getElementById('grid-bg');
       portfolio.classList.remove('show');
       name.classList.remove('show');
+
       await animateTilesToColorRandomGroups('#f5f5f7', 0.96);
       name.classList.add('show');
-      await delay(2000); // Pause for a moment
+      await delay(2000);
+
+      // This animation works with position: absolute because the individual
+      // tiles have their z-index increased to cover the name.
       await animateTilesToRandomWhite();
+
       name.classList.remove('show');
+
+
 
       workTab = document.getElementById('ExperienceTab');
       infoTab = document.getElementById('AboutTab');
       workContent = document.getElementById('Experience');
       infoContent = document.getElementById('About');
-      navIndicator = document.getElementById('nav-indicator'); // Get reference to the indicator
+      navIndicator = document.getElementById('nav-indicator');
 
-      // Add the tab-content-section class to both content areas
       workContent.classList.add('tab-content-section');
       infoContent.classList.add('tab-content-section');
 
@@ -820,31 +790,35 @@
         switchTab('Experience').then(() => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
-
       });
 
       infoTab.addEventListener('click', () => {
         switchTab('About').then(() => {
-          // This should now work correctly as window/document is the scrolling element.
           window.scrollTo({ top: 0, behavior: 'smooth' });
         });
       });
 
-      document.body.style.overflowY = 'auto'; // Prevent scrolling while the portfolio is being shown
+      document.body.style.overflowY = 'auto';
+      window.scrollTo({ top: 0, behavior: 'instant' });
       switchTab('About')
       switchTab('Experience');
       portfolio.classList.add('show');
       document.body.classList.add('portfolio-active');
+
       await animateTilesToColorRandomGroups('#f5f5f7', 0.96);
+            // *** FIX ***: Switch grid to fixed position *after* splash animation
+      grid.style.position = 'fixed';
+      // Set a low z-index so portfolio content scrolls over it.
+      grid.style.zIndex = '-1'; 
       typewriterTextElement.textContent = phrases[0].substring(0, 1);
       typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
     }
 
     window.onload = () => {
-      window.scrollTo({ top: 0, behavior: 'instant' });
-      createTiles(); // Create the initial grid
-      runSequence(); // Start the animation sequence
+      createTiles();
+      runSequence();
     };
+
     window.addEventListener('resize', () => {
       if (screen.width <= 425) {
         name = document.getElementById('phone-name');
@@ -884,4 +858,4 @@
   </script>
 </body>
 
-</ht
+</html>

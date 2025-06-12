@@ -19,7 +19,7 @@ body {
 }
 
 .grid-bg {
-    position: fixed; /* Changed from absolute */
+    position: absolute; /* Changed from absolute */
     top: 0;
     left: 0;
     width: 100%;
@@ -27,7 +27,6 @@ body {
     display: grid;
     user-select: none;
     pointer-events: none;
-    z-index: -1; /* Added this line */
     grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
     grid-template-rows: repeat(auto-fill, minmax(100px, 1fr));
 }
@@ -49,7 +48,7 @@ body {
     font-size: 4rem;
     color: #000;
     letter-spacing: 0.2rem;
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
