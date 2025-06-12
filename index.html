@@ -84,7 +84,7 @@
                       </p>
                     </div>
                     <a href="#" class="project-action-button">
-                      Snack
+                      Visit
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
                           d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
@@ -132,7 +132,7 @@
                         to phones, enabling users to easily improve their photos on the go.</p>
                     </div>
                     <a href="#" class="project-action-button">
-                      Watch
+                      Visit
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
                           d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
@@ -157,7 +157,7 @@
                         them.</p>
                     </div>
                     <a href="#" class="project-action-button">
-                      Begin
+                      Visit
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
                           d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
@@ -180,7 +180,7 @@
                         efficiently manage their internal loaning systems.</p>
                     </div>
                     <a href="#" class="project-action-button">
-                      Subscribe
+                      Visit
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
                           d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
@@ -205,7 +205,7 @@
                       </p>
                     </div>
                     <a href="#" class="project-action-button">
-                      Explore
+                      Visit
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
                           d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
@@ -227,7 +227,7 @@
                         creation and participation in local sports activities.</p>
                     </div>
                     <a href="#" class="project-action-button">
-                      Explore
+                      Visit
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
                           d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
@@ -248,7 +248,7 @@
                         the diverse culinary heritage of the Philippines.</p>
                     </div>
                     <a href="#" class="project-action-button">
-                      Explore
+                      Visit
                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                         <path
                           d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
@@ -796,6 +796,7 @@
     }
 
     async function runSequence() {
+
       const portfolio = document.getElementById('portfolio'); // Ensure portfolio is defined
       portfolio.classList.remove('show');
       name.classList.remove('show');
@@ -840,6 +841,7 @@
     }
 
     window.onload = () => {
+      window.scrollTo({ top: 0, behavior: 'instant' });
       createTiles(); // Create the initial grid
       runSequence(); // Start the animation sequence
     };
