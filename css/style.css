@@ -19,7 +19,8 @@ body {
 }
 
 .grid-bg {
-    position: absolute; /* Changed from absolute */
+    position: absolute;
+    /* Changed from absolute */
     top: 0;
     left: 0;
     width: 100%;
@@ -284,6 +285,25 @@ header {
     font-weight: 500;
     transition: background-color 0.2s ease, transform 0.2s ease;
     text-decoration: none;
+}
+
+.project-action-button.disabled-link {
+    opacity: 0.6;
+    /* Make it slightly transparent */
+    cursor: not-allowed;
+    /* Change cursor to indicate it's not clickable */
+    background-color: #f3f4f6;
+    /* A lighter background */
+    color: #9ca3af;
+    /* A lighter text color */
+    border-color: #e5e7eb;
+    /* A lighter border */
+    transform: none;
+    /* Ensure no transform from hover/active states */
+    pointer-events: none;
+    /* Prevent click events */
+    text-decoration: none;
+    /* Ensure no underline */
 }
 
 .project-action-button:hover {
@@ -627,12 +647,13 @@ header {
     display: none;
     margin-bottom: 2rem;
 }
-.nav-button{
+
+.nav-button {
     cursor: pointer;
     display: none;
 }
 
-.phone-port-name{
+.phone-port-name {
     display: none;
 }
 
@@ -640,7 +661,7 @@ header {
     display: none;
 }
 
-.connect-button-phone-div{
+.connect-button-phone-div {
     display: none;
 }
 
