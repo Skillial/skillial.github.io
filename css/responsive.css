@@ -1,104 +1,258 @@
-    @media (max-width: 425px) and (min-width: 375px) {
-      .pc-name {
-        display: none;
-        /* Hide PC name on mobile */
-      }
+   @media (max-width: 1024px) and (min-width: 768px) {
+     .project-diagonal-visual {
+       width: 80%;
+       height: 80%;
+     }
 
-      .phone-name {
-        display: block;
-        /* Show phone name on mobile */
-      }
+     .about-me-img {
+       max-width: 75%;
+     }
 
-      #pc-link {
-        display: none;
-      }
 
-      #pc-nav {
-        display: none;
-      }
+   }
 
-      .portfolio {
-        padding: 1rem;
-      }
+   @media (max-width: 768px) and (min-width: 425px) {
+     .educational-entry-first {
+       padding-bottom: 0.5rem;
+       --tw-border-opacity: 1;
+       border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+       border-bottom-width: 2px;
+     }
+   }
 
-      .main-headline {
-        min-height: 120px;
-        text-align: center;
-        /* Keeps the text centered */
-        margin-bottom: 1.5rem;
-        padding-top: 1rem;
-      }
+   @media (max-width: 425px) and (min-width: 375px) {
+     .work-experience-logo {
+       display: none;
+     }
 
-      .smart-text {
-        font-size: 0.75rem;
-      }
-    }
+     .work-experience-entry {
+       padding-right: 0;
+     }
 
-    @media(max-width:375px)and (min-width: 320px) {
-      .pc-name {
-        display: none;
-        /* Hide PC name on mobile */
-      }
+     .educational-entry-second {
+       padding-bottom: 0.5rem;
+       --tw-border-opacity: 1;
+       border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+       border-bottom-width: 2px;
+     }
 
-      .phone-name {
-        display: block;
-        /* Show phone name on mobile */
-      }
+     .tech-stack-card {
+       padding-left: 0;
+       padding-right: 0;
+     }
 
-      #pc-link {
-        display: none;
-      }
+     .educational-entry-first {
+       padding-bottom: 0.5rem;
+       --tw-border-opacity: 1;
+       border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+       border-bottom-width: 2px;
+     }
 
-      #pc-nav {
-        display: none;
-      }
+     .about-me-img {
+       max-width: 90%;
+     }
 
-      .portfolio {
-        padding: 1rem;
-      }
+     .project-diagonal-visual {
+       width: 80%;
+       height: 80%;
+     }
 
-      .window-card {
-        max-width: 100%;
-      }
+     .pc-name {
+       display: none;
+       /* Hide PC name on mobile */
+     }
 
-      .main-headline {
-        min-height: 120px;
-      }
-    }
+     .phone-name {
+       display: block;
+       /* Show phone name on mobile */
+     }
 
-    @media (max-width:320px) {
-      .pc-name {
-        display: none;
-        /* Hide PC name on mobile */
-      }
+     #pc-link {
+       display: none;
+     }
 
-      .phone-name {
-        display: block;
-        /* Show phone name on mobile */
-      }
+     #pc-nav {
+       display: none;
+     }
 
-      #pc-link {
-        display: none;
-      }
+     .portfolio {
+       padding: 1rem;
+     }
 
-      #pc-nav {
-        display: none;
-      }
+     .main-headline {
+       min-height: 120px;
+       text-align: center;
+       /* Keeps the text centered */
+       margin-bottom: 1.5rem;
+       padding-top: 1rem;
+     }
 
-      .portfolio {
-        padding: 0rem;
-        margin: 0rem;
-      }
+     .smart-text {
+       font-size: 0.75rem;
+     }
 
-      .window-card {
-        max-width: 120%;
-      }
+     #legend-phone {
+       display: block;
+     }
 
-      .main-headline {
-        min-height: 120px;
-      }
+     #legend-pc {
+       display: none;
+     }
+   }
 
-      .smart-text {
-        font-size: 0.70rem
-      }
-    }
+   @media(max-width:375px)and (min-width: 320px) {
+     .work-experience-logo {
+       display: none;
+     }
+
+     .work-experience-entry {
+       padding-right: 0;
+     }
+
+     .educational-entry-second {
+       padding-bottom: 0.5rem;
+       --tw-border-opacity: 1;
+       border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+       border-bottom-width: 2px;
+     }
+
+     .tech-stack-card {
+       padding-left: 0;
+       padding-right: 0;
+     }
+
+     .educational-entry-first {
+       padding-bottom: 0.5rem;
+       --tw-border-opacity: 1;
+       border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+       border-bottom-width: 2px;
+     }
+
+     .about-me-img {
+       max-width: 90%;
+     }
+
+     .project-diagonal-visual {
+       width: 80%;
+       height: 80%;
+     }
+
+     .pc-name {
+       display: none;
+       /* Hide PC name on mobile */
+     }
+
+     .phone-name {
+       display: block;
+       /* Show phone name on mobile */
+     }
+
+     #pc-link {
+       display: none;
+     }
+
+     #pc-nav {
+       display: none;
+     }
+
+     .portfolio {
+       padding: 1rem;
+     }
+
+     .window-card {
+       max-width: 100%;
+     }
+
+     .main-headline {
+       min-height: 120px;
+     }
+
+     #legend-phone {
+       display: block;
+     }
+
+     #legend-pc {
+       display: none;
+     }
+   }
+
+   @media (max-width:320px) {
+     .work-experience-entry {
+       padding-right: 0;
+     }
+
+     .work-experience-logo {
+       display: none;
+     }
+
+     .educational-entry-second {
+       padding-bottom: 0.5rem;
+       --tw-border-opacity: 1;
+       border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+       border-bottom-width: 2px;
+     }
+
+     .tech-stack-card {
+       padding-left: 0;
+       padding-right: 0;
+     }
+
+     .educational-entry-first {
+       padding-bottom: 0.5rem;
+       --tw-border-opacity: 1;
+       border-color: rgb(209 213 219 / var(--tw-border-opacity, 1));
+       border-bottom-width: 2px;
+     }
+
+     .about-me-img {
+       max-width: 90%;
+     }
+
+     .project-diagonal-visual {
+       width: 80%;
+       height: 80%;
+     }
+
+     .pc-name {
+       display: none;
+       /* Hide PC name on mobile */
+     }
+
+     .phone-name {
+       display: block;
+       /* Show phone name on mobile */
+     }
+
+     #pc-link {
+       display: none;
+     }
+
+     #pc-nav {
+       display: none;
+     }
+
+     .portfolio {
+       padding: 0rem;
+       margin: 0rem;
+     }
+
+     .window-card {
+       max-width: 120%;
+     }
+
+     .main-headline {
+       min-height: 120px;
+     }
+
+     .smart-text {
+       font-size: 0.70rem
+     }
+
+     #legend-phone {
+       display: block;
+     }
+
+     #legend-pc {
+       display: none;
+     }
+   }

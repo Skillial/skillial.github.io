@@ -227,8 +227,6 @@ header {
 }
 
 .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
     margin-top: 2rem;
 }
@@ -505,7 +503,6 @@ header {
     gap: 20px;
     flex-wrap: wrap;
     justify-content: center;
-    padding: 20px;
 }
 
 .about-me-text {
@@ -535,19 +532,6 @@ header {
 
 .tech-item {
     @apply p-2 mb-2 rounded-lg font-semibold;
-}
-
-.swatch-most {
-    background-color: #800080;
-}
-
-.swatch-middle {
-    background-color: #000000;
-}
-
-.swatch-low {
-    background-color: #aaaaaa;
-
 }
 
 .tech-stack-card {
@@ -633,4 +617,13 @@ header {
     to {
         opacity: 1;
     }
+}
+
+#phone-about-me {
+    display: none;
+}
+
+#legend-phone {
+    display: none;
+    margin-bottom: 2rem;
 }
