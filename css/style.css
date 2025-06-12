@@ -627,3 +627,23 @@ header {
     display: none;
     margin-bottom: 2rem;
 }
+.nav-button{
+    cursor: pointer;
+    display: none;
+}
+
+.phone-port-name{
+    display: none;
+}
+
+.phone-nav {
+    display: none;
+}
+
+.connect-button-phone-div{
+    display: none;
+}
+
+#phone-link {
+    display: none;
+}

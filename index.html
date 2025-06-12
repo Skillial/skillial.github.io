@@ -10,6 +10,28 @@
     @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+    /* Style for mobile navigation icons */
+    #phone-link button svg {
+      transition: stroke 0.3s ease, transform 0.3s ease;
+      stroke: #6b7280; /* Default gray color */
+    }
+
+    /* Style for the active mobile navigation icon */
+    #phone-link .mobile-nav-active svg {
+      stroke: #111827; /* Darker color for active state */
+      transform: scale(1.1);
+    }
+
+    /* Style for the mobile navigation indicator */
+    .mobile-nav-indicator {
+        position: absolute;
+        bottom: -4px;
+        height: 3px;
+        background-color: #111827;
+        border-radius: 9999px;
+        transition: left 0.3s ease, width 0.3s ease;
+    }
   </style>
   <link rel="stylesheet" href="css/tailwind.css" />
   <link rel="stylesheet" href="css/style.css" />
@@ -29,9 +51,12 @@
   </div>
   <div class="portfolio" id="portfolio" aria-live="polite">
     <div class="w-full portfolio-width mx-auto flex flex-col items-center relative">
-      <header class="w-full flex items-center justify-between py-6 px-4 md:px-0 backdrop-blur-sm ">
+      <header class="w-full flex items-center justify-between py-6  md:px-0 backdrop-blur-sm">
         <div class="flex items-center space-x-2">
-          <span class="text-gray-800 text-lg font-semibold">Jean Cabrera</span>
+          <span class="text-gray-800 text-lg font-semibold hidden md:inline">
+            Jean Cabrera</span>
+          <span class="text-gray-800 text-lg font-semibold sm:inline phone-port-name">
+            Jean</span>
           <span class="text-gray-400 text-lg hidden md:inline zcool-kuaile"><strong>陈</strong>嘉<strong>诚</strong></span>
         </div>
         <div class="flex bg-gray-200 rounded-full p-1 nav-toggle-group" role="tablist" aria-label="Main Navigation"
@@ -46,6 +71,33 @@
           <button id="connect-button"
             class="bg-gray-800 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg hover:bg-gray-900 transition duration-300 ease-in-out transform hover:-translate-y-1">
             Let's Connect.
+          </button>
+        </div>
+        <!-- Mobile Navigation Buttons with indicator -->
+        <div class="flex items-center relative" id="phone-link">
+          <button id="mobileExperienceTab" class="flex items-center justify-center px-2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <button id="mobileAboutTab" class="flex items-center justify-center px-2">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="7" r="4" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round" />
+              <path d="M12 14C8.68629 14 6 16.6863 6 20H18C18 16.6863 15.3137 14 12 14Z"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div id="mobile-nav-indicator" class="mobile-nav-indicator"></div>
+        </div>
+        <div class="connect-button-phone-div">
+          <button class="flex items-center justify-center px-2" id="connect-button-phone">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M21 11.5C21 16.1944 16.6944 20 11.5 20C9.65839 20 7.95421 19.3908 6.55627 18.3377L3 21L3.62678 17.5146C2.26189 16.0354 1.5 14.0722 1.5 11.5C1.5 6.80558 5.80558 3 11.5 3C16.1944 3 21 6.80558 21 11.5Z"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           </button>
         </div>
       </header>
@@ -275,14 +327,14 @@
                 <img src="me.png" alt="Logo" class="about-me-img" />
                 <div class="about-me-text">
                   <h1 class="text-gray-900 text-2xl md:text-3xl font-bold mt-4 mb-8" id="pc-about-me">About Me</h1>
-                  <p class="text-gray-700 text-base md:text-lg mb-8 mt-8">
+                  <p class="text-gray-700 text-base md:text-lg mb-8 mt-8 text-center md:text-left">
                     I'm a Computer Science graduate with a passion for building innovative solutions
                     that make a real
                     difference. I’m driven by curiosity and a strong desire to grow, constantly
                     seeking opportunities to
                     learn, improve, and explore new ideas.
                   </p>
-                  <p class="text-gray-700 text-base md:text-lg mb-8 mt-8">
+                  <p class="text-gray-700 text-base md:text-lg mb-8 mt-8 text-center md:text-left">
                     My interest lies in developing intuitive software that empowers users with
                     data-driven insights. The
                     aim is to build secure tools that guide individuals toward smarter, more
@@ -485,13 +537,15 @@
           </button>
         </div>
         <a href="https://www.linkedin.com/in/jeanie3/" target="_blank" rel="noopener noreferrer"
-          class="modal-link secondary">
+          class="modal-link secondary email-text-part-secondary">
           Find Me on LinkedIn
         </a>
-        <a href="https://github.com/Skillial" target="_blank" rel="noopener noreferrer" class="modal-link secondary">
+        <a href="https://github.com/Skillial" target="_blank" rel="noopener noreferrer"
+          class="modal-link secondary email-text-part-secondary">
           Check Out My GitHub
         </a>
-        <a href="resume.pdf" target="_blank" rel="noopener noreferrer" class="modal-link secondary">
+        <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
+          class="modal-link secondary email-text-part-secondary">
           View My Resume
         </a>
       </div>
@@ -664,25 +718,33 @@
         typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
       }
     }
-    let workTab;
-    let infoTab;
-    let workContent;
-    let infoContent;
-    let navIndicator; // Reference to the new indicator element
+
+    // --- JAVASCRIPT MODIFICATIONS ---
+    let workTab, infoTab, mobileExperienceTab, mobileAboutTab;
+    let workContent, infoContent;
+    let navIndicator, mobileNavIndicator;
+
     function updateIndicator(targetButton) {
       if (!navIndicator || !targetButton) return;
-
       navIndicator.style.left = `${targetButton.offsetLeft}px`;
       navIndicator.style.width = `${targetButton.offsetWidth}px`;
     }
 
+    function updateMobileIndicator(targetButton) {
+      if (!mobileNavIndicator || !targetButton) return;
+      mobileNavIndicator.style.left = `${targetButton.offsetLeft}px`;
+      mobileNavIndicator.style.width = `${targetButton.offsetWidth}px`;
+    }
+
     function switchTab(activeSectionId) {
       return new Promise((resolve) => {
-        let targetButton; 
+        let targetDesktopButton, targetMobileButton;
 
+        // Hide both content sections
         workContent.style.display = 'none';
         infoContent.style.display = 'none';
 
+        // Reset desktop tabs
         workTab.classList.remove('nav-toggle-active');
         workTab.classList.add('nav-toggle-inactive');
         workTab.setAttribute('aria-selected', 'false');
@@ -691,12 +753,21 @@
         infoTab.classList.add('nav-toggle-inactive');
         infoTab.setAttribute('aria-selected', 'false');
 
+        // Reset mobile icon active state
+        mobileExperienceTab.classList.remove('mobile-nav-active');
+        mobileAboutTab.classList.remove('mobile-nav-active');
+
         if (activeSectionId === 'Experience') {
           workContent.style.display = 'block';
+          // Set active state for desktop tab
           workTab.classList.add('nav-toggle-active');
           workTab.classList.remove('nav-toggle-inactive');
           workTab.setAttribute('aria-selected', 'true');
-          targetButton = workTab;
+          // Set active state for mobile icon
+          mobileExperienceTab.classList.add('mobile-nav-active');
+          targetDesktopButton = workTab;
+          targetMobileButton = mobileExperienceTab;
+          // Restart typewriter
           clearTimeout(typewriterTimeoutId);
           typewriterTextElement.textContent = phrases[0].substring(0, 1);
           phraseIndex = 0;
@@ -705,21 +776,29 @@
           typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
         } else if (activeSectionId === 'About') {
           infoContent.style.display = 'block';
+          // Set active state for desktop tab
           infoTab.classList.add('nav-toggle-active');
           infoTab.classList.remove('nav-toggle-inactive');
           infoTab.setAttribute('aria-selected', 'true');
-          targetButton = infoTab; 
+          // Set active state for mobile icon
+          mobileAboutTab.classList.add('mobile-nav-active');
+          targetDesktopButton = infoTab;
+          targetMobileButton = mobileAboutTab;
+          // Stop typewriter
           clearTimeout(typewriterTimeoutId);
           typewriterTextElement.textContent = "";
           charIndex = 0;
           isDeleting = false;
         }
-        updateIndicator(targetButton);
+        updateIndicator(targetDesktopButton);
+        updateMobileIndicator(targetMobileButton);
         resolve();
       });
     }
+    // --- END OF MODIFICATIONS ---
 
     const connectButton = document.getElementById('connect-button');
+    const connectButtonPhone = document.getElementById('connect-button-phone');
     const connectModal = document.getElementById('connect-modal');
     const modalCloseButton = document.getElementById('modal-close-button');
     function showModal() {
@@ -731,6 +810,7 @@
       document.documentElement.style.overflow = '';
     }
     connectButton.addEventListener('click', showModal);
+    connectButtonPhone.addEventListener('click', showModal);
     modalCloseButton.addEventListener('click', hideModal);
     connectModal.addEventListener('click', (event) => {
       if (event.target === connectModal) {
@@ -769,23 +849,26 @@
       name.classList.add('show');
       await delay(2000);
 
-      // This animation works with position: absolute because the individual
-      // tiles have their z-index increased to cover the name.
       await animateTilesToRandomWhite();
-
       name.classList.remove('show');
 
-
-
+      // --- JAVASCRIPT MODIFICATIONS ---
+      // Get all navigation elements
       workTab = document.getElementById('ExperienceTab');
       infoTab = document.getElementById('AboutTab');
+      mobileExperienceTab = document.getElementById('mobileExperienceTab');
+      mobileAboutTab = document.getElementById('mobileAboutTab');
+
       workContent = document.getElementById('Experience');
       infoContent = document.getElementById('About');
       navIndicator = document.getElementById('nav-indicator');
+      mobileNavIndicator = document.getElementById('mobile-nav-indicator');
+
 
       workContent.classList.add('tab-content-section');
       infoContent.classList.add('tab-content-section');
 
+      // Add event listeners for desktop tabs
       workTab.addEventListener('click', () => {
         switchTab('Experience').then(() => {
           window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -798,20 +881,37 @@
         });
       });
 
+      // Add event listeners for mobile icons
+      mobileExperienceTab.addEventListener('click', () => {
+        switchTab('Experience').then(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+
+      mobileAboutTab.addEventListener('click', () => {
+        switchTab('About').then(() => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+
+      // --- END OF MODIFICATIONS ---
+
       document.body.style.overflowY = 'auto';
       window.scrollTo({ top: 0, behavior: 'instant' });
-      switchTab('About')
-      switchTab('Experience');
+      switchTab('About') // Initialize and hide
+      switchTab('Experience'); // Show default
       portfolio.classList.add('show');
       document.body.classList.add('portfolio-active');
 
       await animateTilesToColorRandomGroups('#f5f5f7', 0.96);
-            // *** FIX ***: Switch grid to fixed position *after* splash animation
       grid.style.position = 'fixed';
-      // Set a low z-index so portfolio content scrolls over it.
-      grid.style.zIndex = '-1'; 
+      grid.style.zIndex = '-1';
       typewriterTextElement.textContent = phrases[0].substring(0, 1);
       typewriterTimeoutId = setTimeout(typeWriter, typingSpeed);
+
+      // Initial position update for indicators after everything is visible
+      updateIndicator(document.querySelector('.nav-toggle-button.nav-toggle-active'));
+      updateMobileIndicator(document.querySelector('#phone-link .mobile-nav-active'));
     }
 
     window.onload = () => {
@@ -853,6 +953,10 @@
       const activeTab = document.querySelector('.nav-toggle-button.nav-toggle-active');
       if (activeTab) {
         updateIndicator(activeTab);
+      }
+      const activeMobileTab = document.querySelector('#phone-link .mobile-nav-active');
+      if (activeMobileTab) {
+        updateMobileIndicator(activeMobileTab);
       }
     });
   </script>

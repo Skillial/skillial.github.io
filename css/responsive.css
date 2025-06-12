@@ -21,6 +21,22 @@
    }
 
    @media (max-width: 425px) and (min-width: 375px) {
+     .connect-button-phone-div {
+       display: flex;
+     }
+
+     #phone-link {
+       display: flex;
+     }
+
+     .phone-port-name {
+       display: inline;
+     }
+
+     .nav-button {
+       display: block;
+     }
+
      .work-experience-logo {
        display: none;
      }
@@ -75,9 +91,6 @@
        display: none;
      }
 
-     .portfolio {
-       padding: 1rem;
-     }
 
      .main-headline {
        min-height: 120px;
@@ -101,6 +114,22 @@
    }
 
    @media(max-width:375px)and (min-width: 320px) {
+     .connect-button-phone-div {
+       display: flex;
+     }
+
+     #phone-link {
+       display: flex;
+     }
+
+     .phone-port-name {
+       display: inline;
+     }
+
+     .nav-button {
+       display: block;
+     }
+
      .work-experience-logo {
        display: none;
      }
@@ -155,9 +184,7 @@
        display: none;
      }
 
-     .portfolio {
-       padding: 1rem;
-     }
+
 
      .window-card {
        max-width: 100%;
@@ -177,6 +204,18 @@
    }
 
    @media (max-width:320px) {
+     .connect-button-phone-div {
+       display: flex;
+     }
+
+     .phone-port-name {
+       display: inline;
+     }
+
+     .nav-button {
+       display: inline-block;
+     }
+
      .work-experience-entry {
        padding-right: 0;
      }
@@ -255,4 +294,18 @@
      #legend-pc {
        display: none;
      }
+
+     .email-text-part {
+       font-size: 0.8rem;
+       padding: 0;
+     }
+
+     .email-text-part-secondary {
+       font-size: 0.8rem;
+     }
+
+     #phone-link {
+       display: flex;
+     }
+
    }
