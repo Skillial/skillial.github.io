@@ -668,3 +668,27 @@ header {
 #phone-link {
     display: none;
 }
+
+/* Style for mobile navigation icons */
+#phone-link button svg {
+    transition: stroke 0.3s ease, transform 0.3s ease;
+    stroke: #6b7280;
+    /* Default gray color */
+}
+
+/* Style for the active mobile navigation icon */
+#phone-link .mobile-nav-active svg {
+    stroke: #111827;
+    /* Darker color for active state */
+    transform: scale(1.1);
+}
+
+/* Style for the mobile navigation indicator */
+.mobile-nav-indicator {
+    position: absolute;
+    bottom: -4px;
+    height: 3px;
+    background-color: #111827;
+    border-radius: 9999px;
+    transition: left 0.3s ease, width 0.3s ease;
+}
