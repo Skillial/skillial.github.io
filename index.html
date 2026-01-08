@@ -2,529 +2,674 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="logo.png" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jean Cabrera</title>
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Spectral:wght@400;600&display=swap');
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-  </style>
-  <link rel="stylesheet" href="css/tailwind.css" />
-  <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/responsive.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="logo.png" />
+    <title>Jean Cabrera</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,700;1,400&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+    </style>
+    <link href="css/tailwind.css" rel="stylesheet">
+    <link href="css/styles.css" rel="stylesheet">
 </head>
 
-<body>
-  <div class="grid-bg" id="grid-bg"></div>
-  <div class="phone-name" id="phone-name">
-    <img src="logo.png" alt="Logo" class="logo-image" />
-  </div>
-  <div class="pc-name" id="pc-name">
-    Jean Cabrera
-    <span class="zcool-kuaile">
-      [<strong>陈</strong>嘉<strong>诚</strong>]
-    </span>
-  </div>
-  <div class="portfolio" id="portfolio" aria-live="polite">
-    <div class="w-full portfolio-width mx-auto flex flex-col items-center relative">
-      <header class="w-full flex items-center justify-between py-6  md:px-0 backdrop-blur-sm">
-        <div class="flex items-center space-x-2">
-          <span class="text-gray-800 text-lg font-semibold hidden md:inline">
-            Jean Cabrera</span>
-          <span class="text-gray-800 text-lg font-semibold sm:inline phone-port-name">
-            Jean</span>
-          <span class="text-gray-400 text-lg hidden md:inline zcool-kuaile"><strong>陈</strong>嘉<strong>诚</strong></span>
+<body class="antialiased">
+
+    <div id="splash-screen">
+        <div id="grid-bg"></div>
+        <div id="splash-logo-container" class="z-[10000] text-center pointer-events-none">
+            <img id="splash-logo" src="logo.png" alt="Jean Cabrera Logo"
+                class="w-20 md:w-24 opacity-0 transform scale-90 transition-all duration-[1000ms] cubic-bezier(0.16, 1, 0.3, 1)" />
+
         </div>
-        <div class="flex bg-gray-200 rounded-full p-1 nav-toggle-group" role="tablist" aria-label="Main Navigation"
-          id="pc-nav">
-          <div id="nav-indicator" class="nav-indicator"></div>
-          <button id="ExperienceTab" class="nav-toggle-button nav-toggle-active" role="tab" aria-selected="true"
-            aria-controls="Expeience">Experience</button>
-          <button id="AboutTab" class="nav-toggle-button nav-toggle-inactive" role="tab" aria-selected="false"
-            aria-controls="About">About</button>
-        </div>
-        <div class="flex items-center header-links phone-links" id="pc-link">
-          <button id="connect-button"
-            class="bg-gray-800 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg hover:bg-gray-900 transition duration-300 ease-in-out transform hover:-translate-y-1">
-            Let's Connect.
-          </button>
-        </div>
-        <div class="flex items-center relative" id="phone-link">
-          <button id="mobileExperienceTab" class="flex items-center justify-center px-4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-          <button id="mobileAboutTab" class="flex items-center justify-center px-4">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="12" cy="7" r="4" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" />
-              <path d="M12 14C8.68629 14 6 16.6863 6 20H18C18 16.6863 15.3137 14 12 14Z"
-                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-          <div id="mobile-nav-indicator" class="mobile-nav-indicator"></div>
-        </div>
-        <div class="connect-button-phone-div">
-          <button class="flex items-center justify-center px-2" id="connect-button-phone">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M21 11.5C21 16.1944 16.6944 20 11.5 20C9.65839 20 7.95421 19.3908 6.55627 18.3377L3 21L3.62678 17.5146C2.26189 16.0354 1.5 14.0722 1.5 11.5C1.5 6.80558 5.80558 3 11.5 3C16.1944 3 21 6.80558 21 11.5Z"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-          </button>
-        </div>
-      </header>
-      <div class="tab-content-container relative w-full flex-grow">
-        <div class="w-full tab-content-section" id="Experience">
-          <section class="window-card mt-8 w-full mx-auto">
-            <div id="Expeience" class="main-content-area md:text-left">
-              <p class="text-gray-600 text-sm md:text-lg font-medium mb-4">
-                I don't just solve problems, I unlock opportunities.
-              </p>
-              <h1 class="text-gray-900 text-3xl md:text-4xl lg:text-6xl font-bold main-headline">
-                <span id="typewriter-text" class="headline-gradient" aria-live="polite"></span><span
-                  class="cursor"></span>
-              </h1>
-              <p class="text-gray-600 smart-text md:text-md lg:text-lg sub-text mb-2 text-right mt-6">
-                <b>Smart moves need the right partner.</b>
-              </p>
-              <p class="text-gray-400 text-xs md:text-md lg:text-lg sub-text text-right">
-                Let’s work together!
-              </p>
+    </div>
+
+    <nav id="main-nav" class="fixed top-0 w-full z-50">
+        <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="font-black text-xl tracking-tighter zcool-kuaile">
+                    陈嘉诚
+                </span>
+                <span
+                    class="text-[10px] uppercase tracking-[0.3em] font-bold text-[var(--apple-text-secondary)] border-l pl-3 border-gray-300 ml-1">Jean
+                    Cabrera</span>
             </div>
-          </section>
-          <section class="projects mt-8 w-full mx-auto">
-            <div id="projects-section" class="mt-8">
-              <h2 class="text-gray-900 text-2xl md:text-3xl font-bold mb-4 text-center md:text-left">Projects</h2>
-              <div class="projects-grid grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
-                <div class="project-card">
-                  <div class="project-card-content">
-                    <div>
-                      <h3>OrganizeIT</h3>
-                      <p class="description">A mobile cashier application equipped with barcode
-                        scanning
-                        functionality,
-                        designed to streamline sales transactions directly from a smartphone.
-                      </p>
-                    </div>
-                    <a href="#" class="project-action-button disabled-link">
-                      Visit
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                          d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="project-diagonal-visual">
-                    <img src="projects/OrganzeIT/preview.png" alt="Project Visual"
-                      onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-                  </div>
-                </div>
-
-                <div class="project-card">
-                  <div class="project-card-content">
-                    <div>
-                      <h3>Edge Detection</h3>
-                      <p class="description">A web application showcasing a ported edge detection
-                        algorithm, allowing
-                        users
-                        to upload images and visualize detected edges directly in their browser.
-                      </p>
-                    </div>
-                    <a href="#" class="project-action-button disabled-link">
-                      Visit
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                          d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="project-diagonal-visual">
-                    <img src="projects/Edge Detection/preview.png" alt="Project Visual"
-                      onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-                  </div>
-                </div>
-
-                <div class="project-card">
-                  <div class="project-card-content">
-                    <div>
-                      <h3>Eagle Eye 4.0</h3>
-                      <p class="description">A mobile application that brings multiple image
-                        enhancement
-                        techniques
-                        directly
-                        to phones, enabling users to easily improve their photos on the go.</p>
-                    </div>
-                    <a href="#" class="project-action-button disabled-link">
-                      Visit
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                          d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="project-diagonal-visual">
-                    <img src="projects/Eagle Eye/preview.png" alt="Project Visual"
-                      onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-                  </div>
-                </div>
-
-                <div class="project-card">
-                  <div class="project-card-content">
-                    <div>
-                      <h3>ArcherHub</h3>
-                      <p class="description"> A distributed enrollment system with role-based
-                        access for
-                        admins, students,
-                        and professors. Students enroll in courses, and professors manage and
-                        grade
-                        them.</p>
-                    </div>
-                    <a href="#" class="project-action-button disabled-link">
-                      Visit
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                          d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="project-diagonal-visual">
-                    <img src="projects/ArcherHub/preview.png" alt="Project Visual"
-                      onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-                  </div>
-                </div>
-
-                <div class="project-card">
-                  <div class="project-card-content">
-                    <div>
-                      <h3>Loan Management</h3>
-                      <p class="description">A web platform developed for Non-Governmental
-                        Organization
-                        administrators to
-                        efficiently manage their internal loaning systems.</p>
-                    </div>
-                    <a href="#" class="project-action-button disabled-link">
-                      Visit
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                          d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="project-diagonal-visual">
-                    <img src="projects/Unbound/preview.png" Project Visual"
-                      onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-                  </div>
-                </div>
-
-                <div class="project-card">
-                  <div class="project-card-content">
-                    <div>
-                      <h3>SnaccOverflow</h3>
-                      <p class="description">A website developed as a forum for food lovers,
-                        providing a
-                        dedicated
-                        platform
-                        for sharing recipes, culinary experiences, and food-related discussions.
-                      </p>
-                    </div>
-                    <a href="#" class="project-action-button disabled-link">
-                      Visit
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                          d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="project-diagonal-visual">
-                    <img src="projects/SnaccOverflow/preview.png" alt="Project Visual"
-                      onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-                  </div>
-                </div>
-                <div class="project-card">
-                  <div class="project-card-content">
-                    <div>
-                      <h3>Sportify</h3>
-                      <p class="description">A lo-fi prototype for a sport event scheduling
-                        platform that facilitates
-                        the
-                        creation and participation in local sports activities.</p>
-                    </div>
-                    <a href="#" class="project-action-button disabled-link">
-                      Visit
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                          d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="project-diagonal-visual">
-                    <img src="projects/Sportify/preview.png" alt="Project Visual"
-                      onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-                  </div>
-                </div>
-                <div class="project-card">
-                  <div class="project-card-content">
-                    <div>
-                      <h3>Phood Fact</h3>
-                      <p class="description">A website that promotes Filipino dishes from various
-                        regions, showcasing
-                        the diverse culinary heritage of the Philippines.</p>
-                    </div>
-                    <a href="#" class="project-action-button disabled-link">
-                      Visit
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                        <path
-                          d="M16.172 11l-5.364-5.364 1.414-1.414L20 12l-7.778 7.778-1.414-1.414L16.172 13H4v-2h12.172z" />
-                      </svg>
-                    </a>
-                  </div>
-                  <div class="project-diagonal-visual">
-                    <img src="projects/Phood Fact/preview.png" alt="Project Visual"
-                      onerror="this.src='https://placehold.co/300x200/F0F0F0/grey?text=Project+Visual';">
-                  </div>
-                </div>
-              </div>
+            <div class="hidden md:flex gap-8 items-center">
+                <a href="#inventory"
+                    class="text-[10px] font-bold uppercase tracking-widest hover:text-black transition-colors">Inventory</a>
+                <a href="#experience"
+                    class="text-[10px] font-bold uppercase tracking-widest hover:text-black transition-colors">Experience</a>
+                <a href="#portfolio"
+                    class="text-[10px] font-bold uppercase tracking-widest hover:text-black transition-colors">Assets</a>
+                <button onclick="openModal()"
+                    class="border border-black text-black text-[10px] font-bold uppercase tracking-[0.2em] px-6 py-2.5 rounded-full transition-all contact-button">
+                    Let's Connect
+                </button>
             </div>
-          </section>
         </div>
-        <div class="w-full tab-content-section" id="About">
-          <section class="mt-8 w-full mx-auto">
-            <div class="main-content-area md:text-left">
+    </nav>
 
-              <div class="about-section-container">
-                <h1 class="text-gray-900 text-2xl md:text-3xl font-bold mt-4 mb-8 w-full text-center"
-                  id="phone-about-me">About Me
+    <main id="main-content">
+        <header class="relative pt-44 pb-32 px-6 bg-white">
+            <div class="max-w-6xl mx-auto">
+                <h1 class="hero-title font-extrabold text-black mb-16">
+                    Designing systems for<br />
+                    <span class="gradient-text italic"><span id="typewriter-text"
+                            class="typewriter-cursor"></span></span>
                 </h1>
-                <img src="me.png" alt="Logo" class="about-me-img" />
-                <div class="about-me-text">
-                  <h1 class="text-gray-900 text-2xl md:text-3xl font-bold mt-4 mb-8" id="pc-about-me">About Me</h1>
-                  <p class="text-gray-700 text-base md:text-lg mb-8 mt-8 text-center md:text-left">
-                    I'm a Computer Science graduate with a passion for building innovative solutions
-                    that make a real
-                    difference. I’m driven by curiosity and a strong desire to grow, constantly
-                    seeking opportunities to
-                    learn, improve, and explore new ideas.
-                  </p>
-                  <p class="text-gray-700 text-base md:text-lg mb-8 mt-8 text-center md:text-left">
-                    My interest lies in developing intuitive software that empowers users with
-                    data-driven insights. The
-                    aim is to build secure tools that guide individuals toward smarter, more
-                    cost-effective solutions.
-                    Where these technologies converge, powerful and intelligent systems are truly
-                    forged, and it's
-                    precisely these challenges that excite me. I love blending creativity with logic
-                    and always look for
-                    opportunities to collaborate on meaningful projects that push boundaries.
-                  </p>
-                </div>
-              </div>
-              <div class="tech-stack-section-container">
-                <h1 class="text-gray-900 text-2xl md:text-3xl font-bold mt-12 mb-8 w-full text-center">
-                  Tech Stack</h1>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-                  <div class="tech-stack-card">
-                    <div id="legend-phone">
-                      <h3 class="text-xl font-semibold text-gray-700 border-b-2 mb-6 border-gray-300 pb-2">
-                        Experience Level
-                      </h3>
-                      <ul>
-                        <li class="tech-item text-experience-most">Most Experience</li>
-                        <li class="tech-item text-experience-middle">Middle Experience</li>
-                        <li class="tech-item text-experience-low">Low Expeirence</li>
-                      </ul>
+                <div class="flex flex-col md:flex-row md:items-start justify-between gap-16">
+                    <div class="max-w-xl">
+                        <p class="spectral italic text-3xl md:text-4xl text-[var(--apple-text)] leading-tight mb-10">
+                            Smart moves need the right partner.
+                        </p>
+                        <a onclick="openModal()" class="phrase-link">
+                            Let's work together &rarr;
+                        </a>
                     </div>
-                    <h3 class="text-xl font-semibold mb-6 text-gray-700 border-b-2 border-gray-300 pb-2">
-                      Programming
-                      Languages</h3>
-                    <ul>
-                      <li class="tech-item text-experience-most">Python</li>
-                      <li class="tech-item text-experience-most">Java</li>
-                      <li class="tech-item text-experience-most">JavaScript</li>
-                      <li class="tech-item text-experience-middle">C#</li>
-                      <li class="tech-item text-experience-middle">Kotlin</li>
-                      <li class="tech-item text-experience-middle">C++</li>
-                      <li class="tech-item text-experience-middle">C</li>
-                      <li class="tech-item text-experience-low">x86 Assembly</li>
-                    </ul>
-                  </div>
 
-                  <!-- Column 2: Web Technologies & Databases -->
-                  <div class="tech-stack-card">
-                    <h3 class="text-xl font-semibold mb-6 text-gray-700 border-b-2 border-gray-300 pb-2">
-                      Web
-                      Technologies
-                    </h3>
-                    <ul>
-                      <li class="tech-item text-experience-most">CSS</li>
-                      <li class="tech-item text-experience-middle">Bootstrap</li>
-                      <li class="tech-item text-experience-low">Tailwind CSS</li>
-                    </ul>
+                    <div class="flex flex-col max-w-sm pt-4">
+                        <div class="flex flex-col gap-4">
+                            <div class="flex items-center justify-between">
+                                <span
+                                    class="text-[10px] font-black uppercase tracking-[.4em] text-[var(--apple-text-secondary)]">Current
+                                    Focus</span>
+                                <div class="h-[1px] bg-gray-200 flex-grow ml-4"></div>
+                            </div>
+                            <div>
+                                <h2 class="font-bold text-xl tracking-tight text-black mb-3">Backend Engineer</h2>
+                                <p class="text-[13px] leading-relaxed text-[var(--apple-text-secondary)] font-medium">
+                                    The most critical work is rarely seen. Keeping the core strong ensures everything
+                                    works exactly as it should.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-                    <h3 class="text-xl font-semibold mt-8 mb-6 text-gray-700 border-b-2 border-gray-300 pb-2">
-                      Databases
-                    </h3>
-                    <ul>
-                      <li class="tech-item text-experience-most">MySQL</li>
-                      <li class="tech-item text-experience-middle">MongoDB</li>
-                      <li class="tech-item text-experience-middle">SQLite</li>
-                    </ul>
-                  </div>
+        <section class="border-y border-[var(--border-light)] bg-[var(--apple-bg-alt)]">
+            <div class="max-w-6xl mx-auto px-6 py-14 grid grid-cols-1 md:grid-cols-2 gap-12 text-center md:text-left">
+                <div>
+                    <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Publication</div>
+                    <div class="text-4xl font-black tracking-tighter italic">IEEE <span
+                            class="text-[var(--apple-text-secondary)]">M2VIP</span></div>
+                    <p class="text-[11px] font-bold uppercase text-gray-500 mt-1">Designing Portable Image Enhancement
+                        for Smartphones</p>
+                </div>
+                <div>
+                    <div class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-2">Academic Standing
+                    </div>
+                    <div class="text-4xl font-black tracking-tighter italic">Summa <span
+                            class="text-[var(--apple-text-secondary)]">Cum Laude</span></div>
+                    <p class="text-[11px] font-bold uppercase text-gray-500 mt-1">Jose Rizal Honors Society • 3.82/4.00
+                        CGPA
+                    </p>
+                </div>
+            </div>
+        </section>
 
-                  <!-- Column 3: Tools & Platforms & Legend -->
-                  <div class="tech-stack-card">
+        <section id="inventory" class="bg-white border-b border-[var(--border-light)]">
+            <div class="section-container">
+                <div class="mb-16 lg:w-1/3">
+                    <div class="flex items-center gap-4 mb-4">
+                        <h2
+                            class="text-[10px] font-black uppercase tracking-[0.5em] text-[var(--apple-text-secondary)] whitespace-nowrap">
+                            Inventory
+                        </h2>
+                        <div class="h-px bg-gray-200 flex-grow"></div>
+                    </div>
+                    <h3 class="text-4xl font-extrabold tracking-tighter">Technical Stack.</h3>
+                    <p class="text-[14px] text-[var(--apple-text-secondary)] leading-relaxed font-medium">
+                        An overview of the technologies and systems that form the foundation of my work.
+                    </p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-24">
                     <div>
-                      <h3 class="text-xl font-semibold mb-6 text-gray-700 border-b-2 border-gray-300 pb-2">
-                        Tools &
-                        Platforms</h3>
-                      <ul>
-                        <li class="tech-item text-experience-most">Git</li>
-                        <li class="tech-item text-experience-most">Microsoft Office</li>
-                        <li class="tech-item text-experience-most">Google Suite</li>
-                        <li class="tech-item text-experience-middle">Figma</li>
-                        <li class="tech-item text-experience-middle">Canva</li>
-
-                      </ul>
-                      <div id="legend-pc">
-                        <h3 class="text-xl font-semibold mt-8 mb-6 text-gray-700 border-b-2 border-gray-300 pb-2">
-                          Experience Level
-                        </h3>
-                        <ul>
-                          <li class="tech-item text-experience-most">Most Experience</li>
-                          <li class="tech-item text-experience-middle">Middle Experience</li>
-                          <li class="tech-item text-experience-low">Low Expeirence</li>
-                        </ul>
-                      </div>
-                    </div>
-
-                  </div>
-                </div>
-                <div class="education-section-container">
-                  <h1 class="text-gray-900 text-2xl md:text-3xl font-bold mt-12 mb-8  text-center">
-                    Education </h1>
-                  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-                    <div class="tech-stack-card">
-                      <div class="space-y-6">
-                        <div class="educational-entry-first">
-                          <h4 class="font-bold text-gray-800">De La Salle University</h4>
-                          <p class="text-gray-600 text-sm">BS in Computer Science Major in
-                            Software Technology</p>
-                          <p class="text-gray-600 text-sm">2021 - 2025</p>
-                          <p class="text-gray-600 text-sm font-semibold">CGPA: 3.8/4.0</p>
+                        <h4
+                            class="text-[11px] font-black uppercase tracking-widest text-black mb-6 pb-2 border-b border-gray-100">
+                            Languages</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="pill">Javascript</span>
+                            <span class="pill">C#</span>
+                            <span class="pill">Python</span>
+                            <span class="pill">Java</span>
+                            <span class="pill">Kotlin</span>
+                            <span class="pill">C/C++</span>
                         </div>
-                        <div class="educational-entry-second">
-                          <h4 class="font-bold text-gray-800">De La Salle University – Integrated
-                            School</h4>
-                          <p class="text-gray-600 text-sm">Senior High School, Science,
-                            Technology, Engineering, and
-                            Mathematics (STEM)</p>
-                          <p class="text-gray-600 text-sm">2019 - 2021</p>
-                          <ul class="list-disc list-inside text-gray-600 text-sm ml-4">
-                            <li>Outstanding Paper Presentation</li>
-                            <li>Consistent Recipient of the Academic Excellence Award</li>
-                          </ul>
+                    </div>
+                    <div>
+                        <h4
+                            class="text-[11px] font-black uppercase tracking-widest text-black mb-6 pb-2 border-b border-gray-100">
+                            Data & Architecture</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="pill">SQL (MySQL/BigQuery)</span>
+                            <span class="pill">MongoDB</span>
+                            <span class="pill">Firebase</span>
+                            <span class="pill">RESTful APIs</span>
+                            <span class="pill">JWT Auth</span>
+                            <span class="pill">MVC</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h4
+                            class="text-[11px] font-black uppercase tracking-widest text-black mb-6 pb-2 border-b border-gray-100">
+                            Tools & Ops</h4>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="pill">Git</span>
+                            <span class="pill">Agile/Scrum</span>
+                            <span class="pill">ETL & Migration</span>
+                            <span class="pill">PowerShell</span>
+                            <span class="pill">Katalon (QA)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience"
+            class="bg-[var(--apple-bg-alt)] border-b border-[var(--border-light)] overflow-visible">
+            <div class="section-container relative">
+                <div class="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
+
+                    <div class="lg:w-1/3 sticky-col">
+                        <div class="flex items-center gap-4 mb-4">
+                            <h2
+                                class="text-[10px] font-black uppercase tracking-[0.5em] text-[var(--apple-text-secondary)] whitespace-nowrap">
+                                Experience</h2>
+                            <div class="h-px bg-gray-200 flex-grow"></div>
+                        </div>
+                        <h3 class="text-4xl font-extrabold tracking-tighter leading-tight mb-6">Career History.</h3>
+                        <p class="text-[14px] text-[var(--apple-text-secondary)] leading-relaxed font-medium">
+                            An overview of professional roles, responsibilities, and impact across my career.
+                        </p>
+                    </div>
+
+                    <div class="lg:w-2/3 space-y-8 w-full">
+
+                        <div class="suits-card p-10 md:p-12 rounded-[40px]" onclick="this.classList.toggle('active')">
+                            <div class="flex justify-between items-start">
+                                <div class="flex-grow">
+                                    <h4 class="leading-tight text-lg lg:text-3xl font-semibold">
+                                        Software Developer
+                                    </h4>
+                                    <p class="text-xs text-gray-400 mt-1 uppercase tracking-widest font-bold">
+                                        Private Retail Client
+                                    </p>
+                                </div>
+                                <div class="year-indicator">2025</div>
+                            </div>
+
+                            <div class="mt-8 flex gap-6 items-start">
+                                <div class="w-1 bg-black h-12 rounded-full"></div>
+                                <p class="text-sm text-gray-500 leading-relaxed font-medium">
+                                    Modernized internal systems by replacing legacy Access workflows with a Node.js MVC
+                                    architecture to deliver fast and consistent performance.
+                                </p>
+                            </div>
+
+                            <div class="expandable-content">
+                                <div class="space-y-10">
+                                    <div>
+                                        <h5 class="text-[10px] font-black uppercase tracking-widest text-black mb-4">
+                                            Tech Deployed
+                                        </h5>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="pill">Node.js</span>
+                                            <span class="pill">EJS</span>
+                                            <span class="pill">Vanilla JS</span>
+                                            <span class="pill">SQLite</span>
+                                            <span class="pill">PowerShell</span>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="text-[10px] font-black uppercase tracking-widest text-black mb-4">
+                                            Strategic Impact
+                                        </h5>
+                                        <ul class="impact-list grid grid-cols-1 md:grid-cols-2 gap-x-8">
+                                            <li>Built a Node.js intranet replacing legacy Microsoft Access
+                                                systems.</li>
+                                            <li>Migrated historical data to SQLite, ensuring reliable and portable
+                                                storage.</li>
+                                            <li>Designed an MVC backend architecture with automated deployment using
+                                                PowerShell.</li>
+                                            <li>Optimized data workflows for consistent, high-performance operations.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
-                      </div>
+                        <div class="suits-card p-10 md:p-12 rounded-[40px]" onclick="this.classList.toggle('active')">
+                            <div class="flex justify-between items-start">
+                                <div class="flex-grow">
+                                    <h4 class="leading-tight text-lg lg:text-3xl font-semibold">
+                                        Product Development Intern
+                                    </h4>
+
+                                    <p class="text-xs text-gray-400 mt-1 uppercase tracking-widest font-bold">
+                                        Abenson Ventures, Inc.
+                                    </p>
+                                </div>
+                                <div class="year-indicator">2024</div>
+                            </div>
+
+                            <div class="mt-8 flex gap-6 items-start">
+                                <div class="w-1 bg-black h-12 rounded-full"></div>
+                                <p class="text-sm text-gray-500 leading-relaxed font-medium">
+                                    Executed high-volume SQL data migrations and automated ETL pipelines to streamline
+                                    operations across multiple nationwide business units with reliable and consistent
+                                    results.
+                                </p>
+                            </div>
+
+                            <div class="expandable-content">
+                                <div class="space-y-10">
+                                    <div>
+                                        <h5 class="text-[10px] font-black uppercase tracking-widest text-black mb-4">
+                                            Tech Deployed
+                                        </h5>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="pill">Google Appscript</span>
+                                            <span class="pill">MongoDB</span>
+                                            <span class="pill">Node.js</span>
+                                            <span class="pill">Express</span>
+                                            <span class="pill">BigQuery</span>
+                                            <span class="pill">Bootstrap</span>
+                                            <span class="pill">Vanilla JS</span>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="text-[10px] font-black uppercase tracking-widest text-black mb-4">
+                                            Strategic Impact
+                                        </h5>
+                                        <ul class="impact-list grid grid-cols-1 md:grid-cols-2 gap-x-8">
+                                            <li>Migrated multi-million row sales datasets from 7 business units into a
+                                                centralized SQL database.</li>
+                                            <li>Used SQL in BigQuery to transform and structure data for executive
+                                                insights.</li>
+                                            <li>Developed tools to automate test data generation and reduce manual
+                                                setup.</li>
+                                            <li>Collaborated in an Agile team to implement efficient, data-driven
+                                                backend workflows.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="suits-card p-10 md:p-12 rounded-[40px]" onclick="this.classList.toggle('active')">
+                            <div class="flex justify-between items-start">
+                                <div class="flex-grow">
+                                    <h4 class="leading-tight text-lg lg:text-3xl font-semibold">
+                                        Backend Developer
+                                    </h4>
+                                    <p class="text-xs text-gray-400 mt-1 uppercase tracking-widest font-bold">
+                                        Unbound MNL
+                                    </p>
+                                </div>
+                                <div class="year-indicator">2023</div>
+                            </div>
+
+                            <div class="mt-8 flex gap-6 items-start">
+                                <div class="w-1 bg-black h-12 rounded-full"></div>
+                                <p class="text-sm text-gray-500 leading-relaxed font-medium">
+                                    Developed a Node.js/Express backend with MVC architecture and a 3-tier RBAC system
+                                    to securely manage NGO financial workflows, collaborating with a team to deliver the
+                                    platform efficiently.
+                                </p>
+                            </div>
+                            <div class="expandable-content">
+                                <div class="space-y-10">
+                                    <div>
+                                        <h5 class="text-[10px] font-black uppercase tracking-widest text-black mb-4">
+                                            Tech Deployed</h5>
+                                        <div class="flex flex-wrap gap-2">
+                                            <span class="pill">Node.js</span>
+                                            <span class="pill">Vanilla JS</span>
+                                            <span class="pill">MongoDB</span>
+                                            <span class="pill">Express</span>
+                                            <span class="pill">Bootstrap</span>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <h5 class="text-[10px] font-black uppercase tracking-widest text-black mb-4">
+                                            Strategic Impact</h5>
+                                        <ul class="impact-list grid grid-cols-1 md:grid-cols-2 gap-x-8">
+                                            <li>Built a Node.js/Express backend with MVC architecture for NGO financial
+                                                workflows.</li>
+                                            <li>Created a 3-tier RBAC system and REST APIs to secure sensitive data.
+                                            </li>
+                                            <li>Designed MongoDB schemas to track transaction histories.</li>
+                                            <li>Worked in a 6-person team using Agile/Scrum to deliver the platform via
+                                                Render.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
                     </div>
-                    <div class="tech-stack-card">
-                      <div class="mb-10 educational-entry-first">
-                        <h4 class="font-bold text-gray-800">St. Stephen High School (聖公會中學)</h4>
-                        <p class="text-gray-600 text-sm">Junior High School</p>
-                        <p class="text-gray-600 text-sm">2015 - 2019</p>
-                        <ul class="list-disc list-inside text-gray-600 text-sm ml-4">
-                          <li>Consistent Honor Student in Chinese</li>
-                        </ul>
-                      </div>
-                      <h3 class="text-xl font-semibold text-gray-700 border-t-2 border-gray-300 pt-2 mb-4 text-center"
-                        id="languages-list">
-                        Languages</h3>
-                      <ul class="list-disc list-inside text-gray-600 text-sm ml-4">
-                        <li>English</li>
-                        <li>Chinese (Mandarin)</li>
-                        <li>Chinese (Hokkien)</li>
-                        <li>Filipino</li>
-                      </ul>
-                    </div>
-                  </div>
+
                 </div>
-                <div class="work-section-container">
-                  <h1 class="text-gray-900 text-2xl md:text-3xl font-bold mt-12 mb-8 w-full text-center">
-                    Work Experience
-                  </h1>
-                  <div class="tech-stack-card w-full max-w-6xl">
-                    <div class="space-y-6">
-                      <div class="work-experience-entry">
-                        <img src="work/abenson/logo.png" alt="Abenson Logo" class="work-experience-logo"
-                          onerror="this.src='https://placehold.co/40x40/E0E0E0/grey?text=Logo';">
-                        <h4 class="font-bold text-gray-800">Abenson</h4>
-                        <p class="text-gray-600 text-sm">Product Development Intern</p>
-                        <p class="text-gray-600 text-sm">May 2024 - July 2024</p>
-                        <ul class="list-disc list-inside text-gray-600 text-sm ml-4" id="abenson-tasks">
-                          <li>Developed a website for automated data generation for testing
-                            purposes.</li>
-                          <li>Set up databases and dashboards to compile sales and event data
-                            across seven business units.
-                          </li>
-                          <li>Automated the formatting and uploading of files to the database
-                            using custom scripts.</li>
-                          <li>Created 13 test scripts covering over 50 test cases for the Abenson
-                            Mobile Application.</li>
-                          <li>Cleaned and standardized over 60,000 rows of duplicate and
-                            misspelled data.</li>
-                          <li>Analyzed current industry practices and provided recommendations for
-                            improvement.</li>
-                        </ul>
-                      </div>
+            </div>
+            </div>
+        </section>
+
+        <section id="portfolio" class="bg-white border-b border-[var(--border-light)]">
+            <div class="section-container">
+                <div class="mb-16 lg:w-1/3">
+                    <div class="flex items-center gap-4 mb-4">
+                        <h2
+                            class="text-[10px] font-black uppercase tracking-[0.5em] text-[var(--apple-text-secondary)] whitespace-nowrap">
+                            Assets
+                        </h2>
+                        <div class="h-px bg-gray-200 flex-grow"></div>
                     </div>
-                  </div>
+                    <h3 class="text-4xl font-extrabold tracking-tighter">Case Studies.</h3>
+                    <p class="text-[14px] text-[var(--apple-text-secondary)] leading-relaxed font-medium">
+                        A look at projects showing design and development.
+                    </p>
+
                 </div>
-          </section>
+                <div class="grid grid-cols-1 gap-8">
+
+                    <div class="suits-card p-10 md:p-14 rounded-[48px]" onclick="toggleCard(this, event)">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                            <div class="flex items-center gap-6">
+                                <div class="w-14 h-14 rounded-2xl overflow-hidden flex items-center justify-center">
+                                    <img src="projects/archerHub/logo.png" alt="ArcherHub Logo"
+                                        class="w-full h-full object-contain">
+                                </div>
+
+                                <div>
+                                    <h4 class="leading-tight text-lg lg:text-3xl font-semibold">ArcherHub</h4>
+                                    <p class="text-[12px] text-gray-400 font-bold uppercase tracking-widest mt-1">
+                                        Enrollment Magement</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="year-indicator">Full-Stack Developer</div>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-8 mt-10">
+                            <div class="accent-bar">
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Motivation</span>
+                                <p class="text-sm font-medium leading-relaxed mt-1">Existing enrollment systems lagged
+                                    and frequently froze, causing delays for students and administrators.</p>
+                            </div>
+                            <div class="accent-bar blue">
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Solution</span>
+                                <p class="text-sm font-medium leading-relaxed mt-1"> Distributed backend with JWT
+                                    authentication and 3-tier RBAC ensures secure, fast enrollment during peak periods.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="expandable-content">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                                <div class="space-y-6">
+                                    <h5 class="text-[10px] font-black uppercase tracking-widest text-black">Project
+                                        Details</h5>
+                                    <p class="text-sm text-[var(--apple-text-secondary)] leading-loose">
+                                        A distributed backend designed for seamless student enrollment. Utilizing JWT
+                                        authentication and 3-tier RBAC, the system synchronizes data across servers and
+                                        integrates with Razor Pages UI to provide a smooth, lag-free registration
+                                        experience.
+                                    </p>
+                                    <div class="pt-4">
+                                        <a href="https://github.com/BanzaiNamco/P4" class="phrase-link">View
+                                            Repository &rarr;</a>
+                                    </div>
+                                </div>
+
+
+                                <div class="slider-wrapper can-scroll-right">
+                                    <div class="edge-gradient edge-left"></div>
+                                    <div class="edge-gradient edge-right"></div>
+
+                                    <button class="slider-nav nav-prev" onclick="moveSlider(this, -1, event)">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="3">
+                                            <path d="M15 18l-6-6 6-6" />
+                                        </svg>
+                                    </button>
+                                    <button class="slider-nav nav-next" onclick="moveSlider(this, 1, event)">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="3">
+                                            <path d="M9 18l6-6-6-6" />
+                                        </svg>
+                                    </button>
+
+
+                                    <div class="slider-container" onscroll="updateSliderState(this)">
+                                        <div class="slide-item">
+                                            <div class="image-label">System UI</div>
+                                            <img src="projects/archerHub/UI.png" alt="Distributed Backend Architecture"
+                                                class="w-full rounded-lg" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="suits-card p-10 md:p-14 rounded-[48px]" onclick="toggleCard(this, event)">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-6">
+                            <div class="flex items-center gap-6">
+                                <div class="w-14 h-14 rounded-2xl overflow-hidden flex items-center justify-center">
+                                    <img src="projects/organizeIT/logo.png" alt="OrganizeIT Logo"
+                                        class="w-full h-full object-contain">
+                                </div>
+
+                                <div>
+                                    <h4 class="leading-tight text-lg lg:text-3xl font-semibold">OrganizeIT</h4>
+                                    <p class="text-[12px] text-gray-400 font-bold uppercase tracking-widest mt-1">
+                                        Inventory Control</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-2">
+                                <div class="year-indicator">Mobile Developer</div>
+                            </div>
+                        </div>
+
+                        <div class="grid md:grid-cols-2 gap-8 mt-10">
+                            <div class="accent-bar">
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Motivation</span>
+                                <p class="text-sm font-medium leading-relaxed mt-1">Small stores lacked affordable POS
+                                    systems, making inventory and sales tracking slow and error-prone.</p>
+                            </div>
+                            <div class="accent-bar blue">
+                                <span
+                                    class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Solution</span>
+                                <p class="text-sm font-medium leading-relaxed mt-1">Transactional cart system with
+                                    automated stock updates and fast barcode scanning to keep inventory accurate.</p>
+                            </div>
+                        </div>
+
+                        <div class="expandable-content">
+                            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                                <div class="space-y-6">
+                                    <h5 class="text-[10px] font-black uppercase tracking-widest text-black">Project
+                                        Details</h5>
+                                    <p class="text-sm text-[var(--apple-text-secondary)] leading-loose">
+                                        A mobile-first POS system designed for small stores. Utilizing real-time
+                                        Firebase synchronization and fast barcode scanning, the app automates stock
+                                        updates, tracks transactions, and keeps inventory accurate across multiple
+                                        devices.
+                                    </p>
+                                    <div class="pt-4">
+                                        <a href="https://github.com/JerW18/MOBDEVE-MCO" class="phrase-link">View
+                                            Repository &rarr;</a>
+                                    </div>
+                                </div>
+
+                                <div class="slider-wrapper can-scroll-right">
+                                    <div class="edge-gradient edge-left"></div>
+                                    <div class="edge-gradient edge-right"></div>
+
+                                    <button class="slider-nav nav-prev" onclick="moveSlider(this, -1, event)">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="3">
+                                            <path d="M15 18l-6-6 6-6" />
+                                        </svg>
+                                    </button>
+                                    <button class="slider-nav nav-next" onclick="moveSlider(this, 1, event)">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none"
+                                            stroke="currentColor" stroke-width="3">
+                                            <path d="M9 18l6-6-6-6" />
+                                        </svg>
+                                    </button>
+
+
+                                    <div class="slider-container" onscroll="updateSliderState(this)">
+                                        <div class="slide-item">
+                                            <div class="image-label">Figma Prototype</div>
+                                            <img src="projects/organizeIT/figma.png"
+                                                alt="Distributed Backend Architecture" class="w-full rounded-lg" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        <section class="bg-[var(--apple-bg-alt)] border-t border-[var(--border-light)]">
+            <div class="section-container py-32 flex flex-col items-center text-center">
+                <h2 class="text-5xl md:text-7xl font-black tracking-tighter mb-8 text-[var(--apple-text)]">
+                    Ready to make a deal?
+                </h2>
+
+                <button onclick="openModal()"
+                    class="contact-button flex items-center gap-3 text-black text-[12px] font-bold uppercase tracking-[0.2em] px-10 py-5 rounded-full bg-white border border-black transition-all group">
+                    <span>Let's get started</span>
+                    <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none"
+                        stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                        <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </section>
+        <footer class="bg-[var(--apple-bg)]">
+            <div
+                class="section-container py-20 flex justify-center items-center text-center text-[9px] font-bold uppercase tracking-[0.2em] text-gray-400">
+                <p>© Jean Cabrera • Built for Performance</p>
+            </div>
+        </footer>
+        <div id="inquiry-modal">
+            <div class="modal-backdrop" onclick="closeModal()"></div>
+            <div class="modal-card">
+                <button onclick="closeModal()"
+                    class="absolute top-6 right-6 p-2 rounded-full hover:bg-gray-100 transition-colors">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="#86868b" stroke-width="2"
+                        stroke-linecap="round">
+                        <path d="M1 1L13 13M1 13L13 1" />
+                    </svg>
+                </button>
+
+                <h2 class="text-3xl font-bold tracking-tight mb-2">Let's Connect.</h2>
+                <p class="text-[13px] text-gray-500 font-medium mb-8 leading-relaxed">
+                    Direct access to my professional channels and assets.
+                </p>
+
+                <div class="space-y-3">
+                    <div class="contact-item" onclick="copyToClipboard('jeancabrera2003@gmail.com', this)">
+                        <div class="flex items-center">
+                            <div class="contact-icon bg-gray-50 text-gray-600">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path
+                                        d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                                    <polyline points="22,6 12,13 2,6" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Email</p>
+                                <p class="text-[14px] font-semibold">jeancabrera2003@gmail.com</p>
+                            </div>
+                        </div>
+                        <span class="copy-feedback">Copied</span>
+                    </div>
+
+                    <a href="https://linkedin.com/in/skillial/" target="_blank" class="contact-item">
+                        <div class="flex items-center">
+                            <div class="contact-icon bg-gray-50 text-gray-700">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Network</p>
+                                <p class="text-[14px] font-semibold">LinkedIn Profile</p>
+                            </div>
+                        </div>
+                        <svg width="14" height="14" fill="none" stroke="#ccc" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </a>
+
+                    <a href="https://github.com/skillial" target="_blank" class="contact-item">
+                        <div class="flex items-center">
+                            <div class="contact-icon bg-gray-50 text-black">
+                                <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Code</p>
+                                <p class="text-[14px] font-semibold">GitHub Repo</p>
+                            </div>
+                        </div>
+                        <svg width="14" height="14" fill="none" stroke="#ccc" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M7 17L17 7M17 7H7M17 7V17" />
+                        </svg>
+                    </a>
+
+                    <a href="CV-Jean_Cabrera.pdf" class="contact-item" download>
+                        <div class="flex items-center">
+                            <div class="contact-icon bg-gray-50 text-gray-600">
+                                <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"
+                                    viewBox="0 0 24 24">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                                    <polyline points="7 10 12 15 17 10" />
+                                    <line x1="12" y1="15" x2="12" y2="3" />
+                                </svg>
+                            </div>
+                            <div>
+                                <p class="text-[10px] uppercase font-bold tracking-widest text-gray-400">Document</p>
+                                <p class="text-[14px] font-semibold">Download Resume</p>
+                            </div>
+                        </div>
+                        <span class="text-[9px] font-black bg-gray-100 px-2 py-1 rounded text-gray-400">PDF</span>
+                    </a>
+                </div>
+                <p class="mt-8 text-[10px] text-center uppercase tracking-widest text-gray-300 font-bold">Based in
+                    Manila, PH</p>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div id="connect-modal" class="modal-overlay">
-    <div class="modal-content">
-      <button class="modal-close-button" id="modal-close-button">&times;</button>
-      <h3 class="text-2xl font-bold mb-6 text-gray-900">Ready to make a deal?</h3>
-      <div class="space-y-4">
-        <div class="email-compound-button-container">
-          <a id="email-me-link" href="mailto:jeancabrera2003@gmail.com" class="email-text-part"
-            rel="noopener noreferrer">
-            Email Me Directly
-          </a>
-          <button id="copy-email-button-icon" class="copy-icon-part" title="Copy Email">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M8 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" />
-              <path d="M6 3a2 2 0 00-2 2v11a2 2 0 002 2h8a2 2 0 002-2V5a2 2 0 00-2-2 3 3 0 01-3 3H9a3 3 0 01-3-3z" />
-            </svg>
-          </button>
-        </div>
-        <a href="https://www.linkedin.com/in/jeanie3/" target="_blank" rel="noopener noreferrer"
-          class="modal-link secondary email-text-part-secondary">
-          Find Me on LinkedIn
-        </a>
-        <a href="https://github.com/Skillial" target="_blank" rel="noopener noreferrer"
-          class="modal-link secondary email-text-part-secondary">
-          Check Out My GitHub
-        </a>
-        <a href="resume.pdf" target="_blank" rel="noopener noreferrer"
-          class="modal-link secondary email-text-part-secondary">
-          View My Resume
-        </a>
-      </div>
-    </div>
-  </div>
-  <script src="js/splash.js"></script>
-  <script src="js/typewriter.js"></script>
-  <script src="js/tab.js"></script>
-  <script src="js/load.js"></script>
+    </main>
+    <script src="js/card.js"></script>
+    <script src="js/splash.js"></script>
 </body>
 
 </html>
